@@ -1,103 +1,91 @@
 import Image from "next/image";
+import Link from "next/link";
+import projects from "@/data/projects.json";
+import ProjectCard from "@/components/features/projects/ProjectCard";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const featuredProjects = projects.filter((project) => project.isFeatured);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="space-y-24 md:space-y-32">
+      {/* ヒーローセクション */}
+      <section className="flex min-h-[calc(100vh-200px)] flex-col items-center justify-center text-center">
+        <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-50 md:text-6xl">
+          新しい世界への探究心を、
+          <br />
+          <span className="text-sky-500 dark:text-sky-400">技術</span>
+          で形にする。
+        </h1>
+        <h2 className="mt-4 text-xl text-slate-700 dark:text-slate-300">
+          Tomokichi&aposs Portfolio
+        </h2>
+        <Link
+          href="/projects"
+          className="mt-8 inline-block rounded-md bg-sky-500 px-6 py-3 font-bold text-white transition-transform hover:scale-105"
+        >
+          制作実績を見る
+        </Link>
+      </section>
+
+      {/* About Me セクション */}
+      <section id="about" className="mx-auto max-w-4xl scroll-mt-20">
+        <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 dark:text-slate-50">
+          About Me
+        </h2>
+        <div className="flex flex-col items-center gap-8 md:flex-row">
+          <Image
+            src="/images/avatar.png"
+            alt="Tomokichi"
+            width={150}
+            height={150}
+            className="rounded-full"
+          />
+          <div className="text-center md:text-left">
+            <p className="leading-relaxed">
+              Next.jsとTypeScriptを軸に、再利用性の高いコンポーネント設計と、誰もがストレスなく使えるUI/UXの実現に情熱を注いでいます。この技術への探究心は、自身の「旅」の経験と深く結びついています...
+            </p>
+            <Link
+              href="/about"
+              className="mt-4 inline-block font-semibold text-sky-500 transition-colors hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300"
+            >
+              もっと詳しく →
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Featured Projects セクション */}
+      <section id="projects" className="mx-auto max-w-6xl scroll-mt-20">
+        <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 dark:text-slate-50">
+          Featured Projects
+        </h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
+      </section>
+
+      {/* Skills セクション */}
+      <section id="skills" className="mx-auto max-w-4xl scroll-mt-20">
+        <h2 className="mb-8 text-center text-3xl font-bold text-slate-900 dark:text-slate-50">
+          Skills
+        </h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          <span className="rounded-lg bg-slate-100 px-4 py-2 text-lg font-semibold dark:bg-slate-800">
+            Next.js
+          </span>
+          <span className="rounded-lg bg-slate-100 px-4 py-2 text-lg font-semibold dark:bg-slate-800">
+            TypeScript
+          </span>
+          <span className="rounded-lg bg-slate-100 px-4 py-2 text-lg font-semibold dark:bg-slate-800">
+            React
+          </span>
+          <span className="rounded-lg bg-slate-100 px-4 py-2 text-lg font-semibold dark:bg-slate-800">
+            Tailwind CSS
+          </span>
+        </div>
+      </section>
     </div>
   );
 }
