@@ -53,7 +53,7 @@ export default function Header() {
       </nav>
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="absolute left-0 w-full bg-background/95 p-4 md:hidden">
+        <div className="absolute left-0 w-full bg-background p-4 md:hidden">
           <nav className="flex flex-col items-center gap-4">
             <Link href="/about" className="transition-colors hover:text-primary">
               About
