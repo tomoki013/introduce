@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tomoki's Portfolio
 
-## Getting Started
+これは、Next.js、TypeScript、Tailwind CSSを使用して構築された、Tomokiの自己紹介ポートフォリオサイトです。
 
-First, run the development server:
+## 概要
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+このプロジェクトは、Tomokiのスキル、プロジェクト、経歴を紹介するために作成されました。モダンでミニマルなデザインを特徴とし、ダークモードとレスポンシブデザインに対応しています。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 主な機能
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **レスポンシブデザイン**: スマートフォンやタブレットなど、あらゆるデバイスで快適に閲覧できます。
+- **ダークモード**: システム設定に応じて、ライトモードとダークモードが切り替わります。
+- **プロジェクト紹介**: これまでにTomokiが手がけたプロジェクトの詳細を掲載しています。
+- **スキル一覧**: Tomokiが持つスキルセットをカテゴリ別に紹介しています。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 使用技術
 
-## Learn More
+- [Next.js](https://nextjs.org/) - Reactフレームワーク
+- [TypeScript](https://www.typescriptlang.org/) - JavaScriptに静的型付けを追加
+- [Tailwind CSS](https://tailwindcss.com/) - ユーティリティファーストのCSSフレームワーク
+- [React Icons](https://react-icons.github.io/react-icons/) - アイコンライブラリ
+- [next-themes](https://github.com/pacocoursey/next-themes) - Next.jsのテーマ管理
 
-To learn more about Next.js, take a look at the following resources:
+## セットアップと実行方法
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **リポジトリをクローン:**
+    ```bash
+    git clone https://github.com/tomoki013/introduce.git
+    cd introduce
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2.  **依存関係をインストール:**
+    ```bash
+    npm install
+    ```
 
-## Deploy on Vercel
+3.  **開発サーバーを起動:**
+    ```bash
+    npm run dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ブラウザで [http://localhost:3000](http://localhost:3000) を開くと、サイトが表示されます。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 作者
+
+**Tomoki**
+
+- **ブログ**: [https://www.tomokichidiary.com/](https://www.tomokichidiary.com/)
+- **GitHub**: [https://github.com/tomoki013](https://github.com/tomoki013)
