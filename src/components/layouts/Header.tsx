@@ -1,49 +1,88 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "../ThemeToggle";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-10 border-b border-gray-200 bg-white/80 backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/80">
+    <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-6xl items-center justify-between p-4">
         <Link href="/" className="text-xl font-bold">
           Tomokichi
         </Link>
 
-        {/* デスクトップ用のナビゲーション */}
+        {/* Desktop Navigation */}
         <div className="hidden items-center gap-4 md:flex">
-          <Link href="/about" className="transition-colors hover:text-sky-500">
+          <Link href="/about" className="transition-colors hover:text-primary">
             About
           </Link>
-          <Link
-            href="/projects"
-            className="transition-colors hover:text-sky-500"
-          >
+          <Link href="/projects" className="transition-colors hover:text-primary">
             Projects
           </Link>
-          <Link href="/skills" className="transition-colors hover:text-sky-500">
+          <Link href="/skills" className="transition-colors hover:text-primary">
             Skills
           </Link>
-          <Link
-            href="/contact"
-            className="transition-colors hover:text-sky-500"
-          >
+          <Link href="/contact" className="transition-colors hover:text-primary">
             Contact
           </Link>
-        </div>
-
-        <div className="flex items-center gap-4">
           <a
             href="YOUR_GITHUB_URL"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors hover:text-sky-500"
+            className="transition-colors hover:text-primary"
           >
             GitHub
           </a>
-          <ThemeToggle />
         </div>
-        {/* モバイル用のハンバーガーメニューは後ほどここに実装 */}
+
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 text-2xl md:hidden"
+            aria-label="メニューを開閉する"
+          >
+            {isMenuOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </nav>
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="absolute left-0 w-full bg-background/95 p-4 md:hidden">
+          <nav className="flex flex-col items-center gap-4">
+            <Link href="/about" className="transition-colors hover:text-primary">
+              About
+            </Link>
+            <Link
+              href="/projects"
+              className="transition-colors hover:text-primary"
+            >
+              Projects
+            </Link>
+            <Link href="/skills" className="transition-colors hover:text-primary">
+              Skills
+            </Link>
+            <Link
+              href="/contact"
+              className="transition-colors hover:text-primary"
+            >
+              Contact
+            </Link>
+            <a
+              href="YOUR_GITHUB_URL"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              GitHub
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

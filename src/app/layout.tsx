@@ -17,7 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${notoSansJp.variable} antialiased`}>
+      <body
+        className={`${notoSansJp.variable} bg-background text-foreground antialiased`}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="flex-1 text-sm md:text-base">{children}</main>

@@ -12,7 +12,7 @@ type Project = {
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/projects/${project.slug}`}>
-      <div className="group overflow-hidden rounded-lg border border-gray-200 bg-white transition-all hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-slate-700 dark:bg-slate-800">
+      <div className="group overflow-hidden rounded-lg border bg-card text-card-foreground transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/10">
         <div className="relative h-40 w-full">
           <Image
             src={project.thumbnail || "/images/placeholder.png"}
@@ -23,17 +23,15 @@ export default function ProjectCard({ project }: { project: Project }) {
           />
         </div>
         <div className="p-4">
-          <h3 className="mb-2 text-lg font-bold text-slate-900 dark:text-slate-50">
-            {project.title}
-          </h3>
-          <p className="mb-3 text-sm text-slate-600 dark:text-slate-400">
+          <h3 className="mb-2 text-lg font-bold">{project.title}</h3>
+          <p className="mb-3 text-sm text-muted-foreground">
             {project.summary}
           </p>
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-sky-100 px-2 py-1 text-xs font-semibold text-sky-800 dark:bg-slate-700 dark:text-sky-400"
+                className="rounded-full bg-primary/10 px-2 py-1 text-xs font-semibold text-primary"
               >
                 {tag}
               </span>

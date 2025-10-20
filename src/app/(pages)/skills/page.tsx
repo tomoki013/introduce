@@ -54,25 +54,21 @@ const otherSkills: Skill[] = [
 
 // スキルカードコンポーネント
 const SkillCard = ({ skill }: { skill: Skill }) => (
-  <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
-    <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50">
-      {skill.name}
-    </h3>
-    <p className="mt-2 text-slate-600 dark:text-slate-400">
-      {skill.description}
-    </p>
+  <div className="rounded-lg border bg-card p-6 text-card-foreground">
+    <h3 className="text-lg font-bold">{skill.name}</h3>
+    <p className="mt-2 text-muted-foreground">{skill.description}</p>
   </div>
 );
 
 export default function SkillsPage() {
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="mx-auto max-w-4xl p-4">
       {/* ページヘッダー */}
       <section className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50 md:text-5xl">
+        <h1 className="text-4xl font-bold text-foreground md:text-5xl">
           スキルスタック
         </h1>
-        <p className="mt-4 text-slate-600 dark:text-slate-400">
+        <p className="mt-4 text-muted-foreground">
           Webサイト・アプリケーション開発で使用する技術の一覧です。
         </p>
       </section>
@@ -80,9 +76,7 @@ export default function SkillsPage() {
       {/* スキルセクション */}
       <div className="space-y-12">
         <section>
-          <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-50">
-            Frontend
-          </h2>
+          <h2 className="mb-6 text-2xl font-bold text-foreground">Frontend</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {frontendSkills.map((skill) => (
               <SkillCard key={skill.name} skill={skill} />
@@ -91,7 +85,7 @@ export default function SkillsPage() {
         </section>
 
         <section>
-          <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-50">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">
             Backend & Database
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -102,7 +96,7 @@ export default function SkillsPage() {
         </section>
 
         <section>
-          <h2 className="mb-6 text-2xl font-bold text-slate-900 dark:text-slate-50">
+          <h2 className="mb-6 text-2xl font-bold text-foreground">
             Others / Tools
           </h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
