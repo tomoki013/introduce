@@ -17,7 +17,7 @@ export default function Home() {
           で形にする。
         </h1>
         <h2 className="mt-4 text-lg text-muted-foreground md:text-xl">
-          Tomokichi&aposs Portfolio
+          Tomokichi&apos;s Portfolio
         </h2>
         <Link
           href="/projects"
