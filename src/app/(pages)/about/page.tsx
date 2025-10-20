@@ -38,15 +38,15 @@ export default function AboutPage() {
         <div className="mt-6 border-l-2 border-primary pl-6">
           <div className="mb-6">
             <h3 className="font-bold">プログラミング学習を開始</h3>
-            <p className="text-sm text-muted-foreground">XXXX年</p>
+            <p className="text-sm text-muted-foreground">2023年10月</p>
           </div>
           <div className="mb-6">
             <h3 className="font-bold">ブログ「ともきちの旅行日記」開設</h3>
-            <p className="text-sm text-muted-foreground">XXXX年</p>
+            <p className="text-sm text-muted-foreground">2024年11月</p>
           </div>
           <div>
             <h3 className="font-bold">AIトラベルプランナー開発</h3>
-            <p className="text-sm text-muted-foreground">XXXX年</p>
+            <p className="text-sm text-muted-foreground">2025年10月</p>
           </div>
         </div>
       </section>
