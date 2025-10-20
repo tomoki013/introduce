@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="border-t bg-secondary text-secondary-foreground">
       <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:grid-cols-4">
           {/* サイトマップ */}
           <div>
             <h4 className="font-bold">サイトマップ</h4>
@@ -85,7 +85,11 @@ export default function Footer() {
 
         {/* コピーライト */}
         <div className="mt-8 border-t pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Tomokichi. All Rights Reserved.</p>
+          <p>
+            &copy; 2025
+            {currentYear > 2025 ? ` - ${currentYear} ` : " "}
+            Tomokichi. All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>
