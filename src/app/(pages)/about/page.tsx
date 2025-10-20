@@ -7,7 +7,7 @@ export default function AboutPage() {
       {/* ページヘッダー */}
       <section className="mb-12 flex flex-col items-center text-center">
         <Image
-          src="/images/avatar.png"
+          src="/images/introduce.jpg"
           alt="Tomokichi"
           width={120}
           height={120}

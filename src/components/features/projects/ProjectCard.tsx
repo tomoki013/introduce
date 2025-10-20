@@ -15,7 +15,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="group overflow-hidden rounded-lg border bg-card text-card-foreground transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/10">
         <div className="relative h-40 w-full">
           <Image
-            src={project.thumbnail || "/images/placeholder.png"}
+            src={project.thumbnail || "favicon.ico"}
             alt={project.title}
             layout="fill"
             objectFit="cover"
