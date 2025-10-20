@@ -19,7 +19,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="rounded-md p-2 text-2xl transition-colors hover:bg-gray-200 dark:hover:bg-slate-700"
+      className="rounded-md p-2 text-2xl transition-colors hover:bg-accent"
       aria-label="テーマを切り替える"
     >
       {theme === "dark" ? <FiSun /> : <FiMoon />}

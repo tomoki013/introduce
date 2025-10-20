@@ -24,13 +24,13 @@ export default function ProjectDetailPage({
   }
 
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="mx-auto max-w-4xl p-4">
       {/* ページヘッダー */}
       <section className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50 md:text-5xl">
+        <h1 className="text-4xl font-bold text-foreground md:text-5xl">
           {project.title}
         </h1>
-        <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
+        <p className="mt-4 text-lg text-muted-foreground">
           {project.summary}
         </p>
       </section>
@@ -51,16 +51,14 @@ export default function ProjectDetailPage({
       <section className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-3">
         {/* 外部リンク */}
         <div className="md:col-span-1">
-          <h2 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-50">
-            リンク
-          </h2>
+          <h2 className="mb-4 text-xl font-bold text-foreground">リンク</h2>
           <div className="space-y-3">
             {project.details.links.url && (
               <a
                 href={project.details.links.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sky-500 transition-colors hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300"
+                className="flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
               >
                 <FiExternalLink /> サイトを見る
               </a>
@@ -70,7 +68,7 @@ export default function ProjectDetailPage({
                 href={project.details.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sky-500 transition-colors hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300"
+                className="flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
               >
                 <FiGithub /> GitHubリポジトリ
               </a>
@@ -80,14 +78,12 @@ export default function ProjectDetailPage({
 
         {/* 技術スタック */}
         <div className="md:col-span-2">
-          <h2 className="mb-4 text-xl font-bold text-slate-900 dark:text-slate-50">
-            使用技術
-          </h2>
+          <h2 className="mb-4 text-xl font-bold text-foreground">使用技術</h2>
           <div className="flex flex-wrap gap-2">
             {project.details.techStack.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full bg-sky-100 px-3 py-1 text-sm font-semibold text-sky-800 dark:bg-slate-700 dark:text-sky-400"
+                className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary"
               >
                 {tech}
               </span>
@@ -97,7 +93,7 @@ export default function ProjectDetailPage({
       </section>
 
       {/* 詳細説明 */}
-      <section className="prose prose-lg max-w-none dark:prose-invert prose-p:leading-relaxed prose-a:text-sky-500 dark:prose-a:text-sky-400">
+      <section className="prose prose-lg max-w-none dark:prose-invert prose-p:leading-relaxed prose-a:text-primary">
         <h2>概要</h2>
         <p>{project.details.overview}</p>
 
@@ -116,7 +112,7 @@ export default function ProjectDetailPage({
       <div className="mt-16 text-center">
         <Link
           href="/projects"
-          className="inline-block rounded-md border border-slate-300 px-6 py-3 font-bold transition-colors hover:bg-slate-100 dark:border-slate-600 dark:hover:bg-slate-800"
+          className="inline-block rounded-md border px-6 py-3 font-bold transition-colors hover:bg-secondary"
         >
           制作実績一覧へ戻る
         </Link>

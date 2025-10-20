@@ -3,13 +3,13 @@ import projects from "@/data/projects.json";
 
 export default function ProjectsPage() {
   return (
-    <div className="mx-auto max-w-6xl">
+    <div className="mx-auto max-w-6xl p-4">
       {/* ページヘッダー */}
       <section className="mb-12 text-center">
-        <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50 md:text-5xl">
+        <h1 className="text-4xl font-bold text-foreground md:text-5xl">
           制作実績
         </h1>
-        <p className="mt-4 text-slate-600 dark:text-slate-400">
+        <p className="mt-4 text-muted-foreground">
           これまで開発してきたプロダクトや大学での課題などを掲載しています。
         </p>
       </section>
