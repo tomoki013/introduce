@@ -30,16 +30,14 @@ export default function ProjectDetailPage({
         <h1 className="text-4xl font-bold text-foreground md:text-5xl">
           {project.title}
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          {project.summary}
-        </p>
+        <p className="mt-4 text-lg text-muted-foreground">{project.summary}</p>
       </section>
 
       {/* メイン画像 */}
       <section className="mb-12">
         <div className="relative h-96 w-full overflow-hidden rounded-lg">
           <Image
-            src={project.thumbnail || "/images/placeholder.png"}
+            src={project.thumbnail || "/favicon.ico"}
             alt={project.title}
             layout="fill"
             objectFit="cover"

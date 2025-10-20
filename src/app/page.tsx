@@ -34,7 +34,7 @@ export default function Home() {
         </h2>
         <div className="flex flex-col items-center gap-8 md:flex-row">
           <Image
-            src="/images/avatar.png"
+            src="/images/introduce.jpg"
             alt="Tomokichi"
             width={150}
             height={150}
