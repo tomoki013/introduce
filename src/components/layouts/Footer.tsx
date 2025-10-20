@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href="YOUR_GITHUB_URL"
+                  href="https://github.com/tomoki013/introduce"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"
@@ -70,12 +70,12 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="YOUR_BLOG_URL"
+                  href="https://www.tomokichidiary.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
-                  ブログ
+                  ともきちの旅行日記
                 </a>
               </li>
               {/* 必要であればX（旧Twitter）なども追加 */}

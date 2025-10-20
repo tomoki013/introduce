@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "../ThemeToggle";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiGithub } from "react-icons/fi";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,17 +28,18 @@ export default function Header() {
           <Link href="/contact" className="transition-colors hover:text-primary">
             Contact
           </Link>
-          <a
-            href="YOUR_GITHUB_URL"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-primary"
-          >
-            GitHub
-          </a>
         </div>
 
         <div className="flex items-center gap-4">
+          <a
+            href="https://github.com/tomoki013/introduce"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl transition-colors hover:text-primary"
+            aria-label="GitHub"
+          >
+            <FiGithub />
+          </a>
           <ThemeToggle />
           {/* Mobile Menu Button */}
           <button
@@ -73,12 +74,12 @@ export default function Header() {
               Contact
             </Link>
             <a
-              href="YOUR_GITHUB_URL"
+              href="https://github.com/tomoki013/introduce"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-primary"
+              className="text-2xl transition-colors hover:text-primary"
             >
-              GitHub
+              <FiGithub />
             </a>
           </nav>
         </div>
