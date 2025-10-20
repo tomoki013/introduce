@@ -11,11 +11,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectDetailPage({
-  params,
-}: {
-  params: { slug: string };
+export default async function ProjectDetailPage(props: {
+  params: Promise<{ slug: string }>;
 }) {
+  const params = await props.params;
   const project = projects.find((p) => p.slug === params.slug);
 
   // プロジェクトが見つからない場合は404ページを表示
