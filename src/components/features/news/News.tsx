@@ -6,6 +6,7 @@ import { Section } from "@/components/layouts/Section";
 import news from "@/data/news.json";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
+import Link from "next/link";
 
 export const News = () => {
   return (
@@ -23,7 +24,7 @@ export const News = () => {
         <ul className="space-y-4">
           {news.map((item, index) => (
             <li key={index} className="border-b border-border pb-2">
-              <a
+              <Link
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -31,14 +32,14 @@ export const News = () => {
               >
                 <time
                   dateTime={item.date}
-                  className="text-sm text-secondary whitespace-nowrap"
+                  className="text-sm whitespace-nowrap"
                 >
                   {format(new Date(item.date), "yyyy/MM/dd", { locale: ja })}
                 </time>
                 <p className="text-primary group-hover:text-accent transition-colors">
                   {item.title}
                 </p>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
