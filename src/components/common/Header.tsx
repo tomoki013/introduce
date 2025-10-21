@@ -59,13 +59,13 @@ export default function Header() {
             Projects
           </MotionA>
           <MotionA
-            href="/skills"
+            href="/blog"
             className="glitch transition-colors hover:text-primary"
             data-text="Skills"
             variants={navLinkVariants}
             whileHover="hover"
           >
-            Skills
+            blog
           </MotionA>
           <MotionA
             href="/contact"

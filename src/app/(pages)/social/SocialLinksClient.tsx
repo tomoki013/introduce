@@ -33,9 +33,7 @@ export default function SocialLinksClient() {
         >
           <div className="mb-4 text-primary">{social.icon}</div>
           <h2 className="mb-2 text-2xl font-bold">{social.name}</h2>
-          <p className="mb-4 flex-grow text-muted-foreground">
-            {social.description}
-          </p>
+          <p className="mb-4 text-muted-foreground">{social.description}</p>
           <Link
             href={social.url}
             target="_blank"
@@ -45,7 +43,7 @@ export default function SocialLinksClient() {
           >
             フォローする
           </Link>
-          </MotionDiv>
+        </MotionDiv>
       ))}
     </div>
   );
