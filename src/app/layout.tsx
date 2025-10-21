@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import ScrollProgress from "@/components/layouts/ScrollProgress";
 import { Metadata } from "next";
 
 const notoSansJp = Noto_Sans_JP({
@@ -64,6 +65,7 @@ export default function RootLayout({
         className={`${shareTechMono.variable} ${notoSansJp.variable} bg-background text-foreground antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <ScrollProgress />
           <Header />
           <main className="flex-1 text-sm md:text-base">{children}</main>
           <Footer />
