@@ -93,30 +93,31 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <TravelJourney />
-
-      {/* 経歴セクション */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-foreground">ITの経歴 (IT Journey)</h2>
-        <div className="mt-6 border-l-2 border-primary pl-6">
-          {journeys.map((journey, index) => (
-            <div key={index} className="relative mb-8">
-              <div className="absolute -left-[calc(1.5rem+2px)] top-1 flex h-full items-start">
-                <div className="h-4 w-4 rounded-full border-2 border-primary bg-background" />
+      <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+        {/* 経歴セクション */}
+        <section>
+          <h2 className="text-2xl font-bold text-foreground">ITの経歴 (IT Journey)</h2>
+          <div className="mt-6 border-l-2 border-primary pl-6">
+            {journeys.map((journey, index) => (
+              <div key={index} className="relative mb-8">
+                <div className="absolute -left-[calc(1.5rem+2px)] top-1 flex h-full items-start">
+                  <div className="h-4 w-4 rounded-full border-2 border-primary bg-background" />
+                </div>
+                <div className="ml-4">
+                  <span className="rounded-full bg-primary px-2 py-1 text-xs text-primary-foreground">
+                    {journey.category}
+                  </span>
+                  <h3 className="mt-2 font-bold text-foreground">
+                    {journey.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{journey.date}</p>
+                </div>
               </div>
-              <div className="ml-4">
-                <span className="rounded-full bg-primary px-2 py-1 text-xs text-primary-foreground">
-                  {journey.category}
-                </span>
-                <h3 className="mt-2 font-bold text-foreground">
-                  {journey.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">{journey.date}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+        <TravelJourney />
+      </div>
 
       {/* スキルへの導線 */}
       <section className="mt-16 text-center">

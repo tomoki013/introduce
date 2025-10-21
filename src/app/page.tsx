@@ -11,6 +11,7 @@ import {
   MotionDiv,
   MotionSpan,
 } from "@/components/Motion";
+import { News } from "@/components/news/News";
 
 export default function Home() {
   const featuredProjects = projects.filter((project) => project.isFeatured);
@@ -88,6 +89,9 @@ export default function Home() {
           </Link>
         </MotionDiv>
       </MotionSection>
+
+      {/* News セクション */}
+      <News />
 
       {/* About Me セクション */}
       <MotionSection
