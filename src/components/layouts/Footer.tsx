@@ -61,6 +61,36 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+          {/* 法務情報 */}
+          <div>
+            <h4 className="font-bold">法務情報</h4>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <Link
+                  href="/terms"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  利用規約
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  プライバシーポリシー
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/sitemap"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  サイトマップ
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* コピーライト */}
