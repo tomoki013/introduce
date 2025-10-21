@@ -1,34 +1,103 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import projects from "@/data/projects.json";
 import ProjectCard from "@/components/features/projects/ProjectCard";
+import {
+  MotionSection,
+  MotionH1,
+  MotionH2,
+  MotionDiv,
+  MotionSpan,
+} from "@/components/Motion";
 
 export default function Home() {
   const featuredProjects = projects.filter((project) => project.isFeatured);
 
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.1,
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const glitchVariants = {
+    hidden: { opacity: 0, x: -10, y: 10 },
+    visible: {
+      opacity: [0, 1, 0.2, 1, 0.5, 1],
+      x: [0, -10, 5, -5, 10, 0],
+      y: [0, 10, -5, 5, -10, 0],
+      transition: {
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const skillVariants = {
+    hidden: { opacity: 0, scale: 0.5, rotate: -45 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      },
+    },
+  };
+
+  const skills = ["Next.js", "TypeScript", "React", "Tailwind CSS"];
+
   return (
     <div className="space-y-24 md:space-y-32">
       {/* ヒーローセクション */}
-      <section className="flex min-h-[calc(100vh-200px)] flex-col items-center justify-center p-4 text-center">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-6xl">
+      <MotionSection
+        className="flex min-h-[calc(100vh-200px)] flex-col items-center justify-center p-4 text-center"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
+        <MotionH1
+          className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-6xl"
+          variants={glitchVariants}
+        >
           新しい世界への探究心を、
           <br />
           <span className="text-primary">技術</span>
           で形にする。
-        </h1>
-        <h2 className="mt-4 text-lg text-muted-foreground md:text-xl">
-          Tomokichi&apos;s Portfolio
-        </h2>
-        <Link
-          href="/projects"
-          className="mt-8 inline-block rounded-md bg-primary px-6 py-3 font-bold text-primary-foreground transition-transform hover:scale-105"
+        </MotionH1>
+        <MotionH2
+          className="mt-4 text-lg text-muted-foreground md:text-xl"
+          variants={glitchVariants}
         >
-          制作実績を見る
-        </Link>
-      </section>
+          Tomokichi&apos;s Portfolio
+        </MotionH2>
+        <MotionDiv variants={glitchVariants}>
+          <Link
+            href="/projects"
+            className="mt-8 inline-block rounded-md bg-primary px-6 py-3 font-bold text-primary-foreground transition-transform hover:scale-105"
+          >
+            制作実績を見る
+          </Link>
+        </MotionDiv>
+      </MotionSection>
 
       {/* About Me セクション */}
-      <section id="about" className="mx-auto max-w-4xl scroll-mt-20 p-4">
+      <MotionSection
+        id="about"
+        className="mx-auto max-w-4xl scroll-mt-20 p-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <h2 className="mb-8 text-center text-3xl font-bold text-foreground">
           About Me
         </h2>
@@ -52,10 +121,17 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </MotionSection>
 
       {/* Featured Projects セクション */}
-      <section id="projects" className="mx-auto max-w-6xl scroll-mt-20 p-4">
+      <MotionSection
+        id="projects"
+        className="mx-auto max-w-6xl scroll-mt-20 p-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionVariants}
+      >
         <h2 className="mb-8 text-center text-3xl font-bold text-foreground">
           Featured Projects
         </h2>
@@ -64,28 +140,35 @@ export default function Home() {
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
-      </section>
+      </MotionSection>
 
       {/* Skills セクション */}
-      <section id="skills" className="mx-auto max-w-4xl scroll-mt-20 p-4">
+      <MotionSection
+        id="skills"
+        className="mx-auto max-w-4xl scroll-mt-20 p-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={sectionVariants}
+      >
         <h2 className="mb-8 text-center text-3xl font-bold text-foreground">
           Skills
         </h2>
-        <div className="flex flex-wrap justify-center gap-4">
-          <span className="rounded-lg bg-secondary px-4 py-2 text-lg font-semibold">
-            Next.js
-          </span>
-          <span className="rounded-lg bg-secondary px-4 py-2 text-lg font-semibold">
-            TypeScript
-          </span>
-          <span className="rounded-lg bg-secondary px-4 py-2 text-lg font-semibold">
-            React
-          </span>
-          <span className="rounded-lg bg-secondary px-4 py-2 text-lg font-semibold">
-            Tailwind CSS
-          </span>
-        </div>
-      </section>
+        <MotionDiv
+          className="flex flex-wrap justify-center gap-4"
+          variants={sectionVariants}
+        >
+          {skills.map((skill) => (
+            <MotionSpan
+              key={skill}
+              className="rounded-lg bg-secondary px-4 py-2 text-lg font-semibold"
+              variants={skillVariants}
+            >
+              {skill}
+            </MotionSpan>
+          ))}
+        </MotionDiv>
+      </MotionSection>
     </div>
   );
 }
