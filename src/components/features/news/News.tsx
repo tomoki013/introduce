@@ -18,15 +18,15 @@ type Props = {
 
 export const News = ({ news = newsData }: Props) => {
   return (
-    <ul className="space-y-2">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
       {news.map((item, index) => (
-        <li
+        <div
           key={index}
-          className="flex flex-col border-b border-border py-4 sm:flex-row sm:items-baseline sm:gap-4"
+          className="flex flex-col gap-4 rounded-lg border border-border p-6"
         >
           <time
             dateTime={item.date}
-            className="mb-1 text-sm text-muted-foreground sm:mb-0 sm:w-24"
+            className="text-sm text-muted-foreground"
           >
             {format(new Date(item.date), "yyyy/MM/dd", { locale: ja })}
           </time>
@@ -40,19 +40,19 @@ export const News = ({ news = newsData }: Props) => {
               {item.title}
             </Link>
           </div>
-          <div className="mt-2 flex flex-wrap gap-2 sm:mt-0 sm:flex-shrink-0 sm:justify-end">
+          <div className="flex flex-wrap gap-2">
             {item.tags.map((tag) => (
               <Link
                 key={tag}
-                href={`/news/${tag.toLowerCase()}`}
+                href={`/news/${encodeURIComponent(tag)}`}
                 className="block rounded-full border border-primary px-3 py-1 text-xs text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
               >
                 {tag}
               </Link>
             ))}
           </div>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
