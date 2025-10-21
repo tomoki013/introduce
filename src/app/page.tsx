@@ -11,7 +11,7 @@ import {
   MotionDiv,
   MotionSpan,
 } from "@/components/Motion";
-import { News } from "@/components/news/News";
+import { News } from "@/components/features/news/News";
 
 export default function Home() {
   const featuredProjects = projects.filter((project) => project.isFeatured);
