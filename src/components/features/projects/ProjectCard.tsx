@@ -23,7 +23,12 @@ export default function ProjectCard({ project }: { project: Project }) {
           />
         </div>
         <div className="p-4">
-          <h3 className="mb-2 text-lg font-bold">{project.title}</h3>
+          <h3
+            className="group-hover:glitch mb-2 text-lg font-bold"
+            data-text={project.title}
+          >
+            {project.title}
+          </h3>
           <p className="mb-3 text-sm text-muted-foreground">
             {project.summary}
           </p>
