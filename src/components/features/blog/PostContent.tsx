@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import { MotionDiv, MotionH1 } from "@/components/common/Motion";

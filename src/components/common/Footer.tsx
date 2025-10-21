@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:grid-cols-4">
           {/* サイトマップ */}
           <div>
-            <h4 className="font-bold">サイトマップ</h4>
+            <h4 className="font-bold">コンテンツ</h4>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link
@@ -37,26 +37,26 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/blog"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  ブログ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/news"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  ニュース
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/skills"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   スキル
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  お問い合わせ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/social"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  ソーシャル
                 </Link>
               </li>
             </ul>
@@ -87,6 +87,58 @@ export default function Footer() {
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
                   サイトマップ
+                </Link>
+              </li>
+            </ul>
+          </div>
+          {/* ソーシャル */}
+          <div>
+            <h4 className="font-bold">ソーシャル</h4>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <Link
+                  href="/social"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  ソーシャル
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://github.com/tomoki013/"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  Github
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://note.com/tomokichidiary/"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  note
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.tomokichidiary.com/"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  ともきちの旅行日記
+                </Link>
+              </li>
+            </ul>
+          </div>
+          {/* お問い合わせ */}
+          <div>
+            <h4 className="font-bold">お問い合わせ</h4>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground transition-colors hover:text-primary"
+                >
+                  お問い合わせ
                 </Link>
               </li>
             </ul>
