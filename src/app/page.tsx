@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import projects from "@/data/projects.json";
+import news from "@/data/news.json";
 import ProjectCard from "@/components/features/projects/ProjectCard";
 import type { Variants } from "framer-motion";
 import {
@@ -13,6 +14,8 @@ import {
 } from "@/components/Motion";
 import { Blog } from "@/components/blog/Blog";
 import { News } from "@/components/features/news/News";
+import { Section } from "@/components/layouts/Section";
+import { FaRegNewspaper } from "react-icons/fa";
 
 export default function Home() {
   const featuredProjects = projects.filter((project) => project.isFeatured);
@@ -92,7 +95,28 @@ export default function Home() {
       </MotionSection>
 
       {/* News セクション */}
-      <News limit={5} />
+      <Section>
+        <div className="flex items-center gap-2">
+          <FaRegNewspaper className="text-xl" />
+          <MotionH2>News</MotionH2>
+        </div>
+        <MotionDiv
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-4 space-y-4"
+        >
+          <News news={news.slice(0, 5)} />
+          <div className="text-center">
+            <Link
+              href="/news"
+              className="inline-block font-semibold text-primary transition-colors hover:text-primary/80"
+            >
+              View All →
+            </Link>
+          </div>
+        </MotionDiv>
+      </Section>
 
       {/* About Me セクション */}
       <MotionSection
