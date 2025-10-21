@@ -92,7 +92,7 @@ export default function Home() {
       </MotionSection>
 
       {/* News セクション */}
-      <News />
+      <News limit={5} />
 
       {/* About Me セクション */}
       <MotionSection
