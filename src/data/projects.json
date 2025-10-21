@@ -24,5 +24,49 @@
         "/images/projects/travel-diary.jpg"
       ]
     }
+  },
+  {
+    "slug": "web-roulette",
+    "title": "WEBでルーレット",
+    "isFeatured": true,
+    "thumbnail": "/images/projects/travel-diary.jpg",
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+    "summary": "",
+    "details": {
+      "overview": "",
+      "background": "",
+      "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "features": [],
+      "links": {
+        "url": "https://webroulette.netlify.app/",
+        "github": "https://github.com/tomoki013/roulette/"
+      },
+      "images": [
+        "/images/projects/travel-diary.jpg",
+        "/images/projects/travel-diary.jpg"
+      ]
+    }
+  },
+  {
+    "slug": "money-master",
+    "title": "マネーマスター",
+    "isFeatured": true,
+    "thumbnail": "/images/projects/travel-diary.jpg",
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
+    "summary": "",
+    "details": {
+      "overview": "",
+      "background": "",
+      "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "features": [],
+      "links": {
+        "url": "https://money-master-ja.netlify.app/",
+        "github": "https://github.com/tomoki013/money-master/"
+      },
+      "images": [
+        "/images/projects/travel-diary.jpg",
+        "/images/projects/travel-diary.jpg"
+      ]
+    }
   }
 ]

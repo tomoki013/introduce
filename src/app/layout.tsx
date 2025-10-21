@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body
-        className={`${shareTechMono.variable} ${notoSansJp.variable} scanlines bg-background text-foreground antialiased`}
+        className={`${shareTechMono.variable} ${notoSansJp.variable} bg-background text-foreground antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />

@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <Image
             src={project.thumbnail || "favicon.ico"}
             alt={project.title}
-            layout="fill"
+            fill
             objectFit="cover"
             className="transition-transform duration-300 group-hover:scale-105"
           />
