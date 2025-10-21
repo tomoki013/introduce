@@ -11,6 +11,7 @@ import {
   MotionDiv,
   MotionSpan,
 } from "@/components/Motion";
+import { Blog } from "@/components/blog/Blog";
 import { News } from "@/components/features/news/News";
 
 export default function Home() {
@@ -150,6 +151,9 @@ export default function Home() {
           ))}
         </MotionDiv>
       </MotionSection>
+
+      {/* Blog セクション */}
+      <Blog />
 
       {/* Skills セクション */}
       <MotionSection
