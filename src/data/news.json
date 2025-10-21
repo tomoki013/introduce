@@ -1,5 +1,20 @@
 [
   {
+    "date": "2024-10-15",
+    "title": "AIが旅行プランを作成してくれる「AI Travel Planner」を公開しました。",
+    "url": "https://www.tomokichidiary.com/ai-planner"
+  },
+  {
+    "date": "2024-08-01",
+    "title": "ブログ「ともきちの旅行日記」に新しい記事を追加しました。",
+    "url": "https://www.tomokichidiary.com/posts"
+  },
+  {
+    "date": "2024-07-31",
+    "title": "noteで新しい記事を公開しました。",
+    "url": "https://note.com/tomokichidiary"
+  },
+  {
     "date": "2024-07-21",
     "title": "ポートフォリオサイトをNext.js App Routerで作り直しました。",
     "url": "https://tomokichi.net"
@@ -8,5 +23,10 @@
     "date": "2024-06-01",
     "title": "noteでブログを始めました。",
     "url": "https://note.com/tomokichidiary"
+  },
+  {
+    "date": "2024-05-01",
+    "title": "GitHubで新しいプロジェクトを公開しました。",
+    "url": "https://github.com/tomoki013"
   }
 ]

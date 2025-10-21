@@ -1,12 +1,4 @@
 "use client";
-import { MotionDiv } from "@/components/Motion";
-import Image from "next/image";
-
-const travelImages = [
-  "/images/introduce.jpg",
-  "/images/introduce.jpg",
-  "/images/introduce.jpg",
-];
 
 const travelJourneys = [
   {
@@ -17,12 +9,17 @@ const travelJourneys = [
   {
     date: "2017年",
     title: "ヨーロッパ周遊",
-    description: "歴史的な建造物や多様な文化に触れ、視野を広げる。",
+    description: "フランス、スペイン、ベルギー、ギリシャなどを巡り、歴史的な建造物や多様な文化に触れ、視野を広げる。",
   },
   {
-    date: "2019年",
-    title: "南米大陸横断",
-    description: "壮大な自然と現地の温かい人々に感動。旅の経験を発信したいと思い始める。",
+    date: "2018年",
+    title: "中東・アフリカ探訪",
+    description: "エジプトの古代遺跡やトルコの壮大な景色に感動を覚える。",
+  },
+  {
+    date: "2020年",
+    title: "アジア横断の旅",
+    description: "インド、ベトナム、韓国を訪れ、多様な文化と人々の生活に触れる。",
   },
   {
     date: "2023年",
