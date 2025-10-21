@@ -8,6 +8,45 @@ export const metadata: Metadata = {
     "Tomokichiの自己紹介ページ。技術への探求心と旅の経験を活かしたエンジニアとしてのビジョンを紹介します。",
 };
 
+const journeys = [
+  {
+    date: "2024年5月",
+    title: "プログラミング学習を開始（HTML,CSS,JavaScript,Python）",
+  },
+  {
+    date: "2024年7月",
+    title: "HTML,CSS,JavaScriptを使った簡単な自己紹介サイトを作成",
+  },
+  {
+    date: "2024年8月",
+    title: "HTML,CSS,JavaScriptを使ったブログサイトの開発開始",
+  },
+  {
+    date: "2024年11月",
+    title: "Next.jsとTypeScriptを学習開始",
+  },
+  {
+    date: "2024年11月",
+    title: "ブログサイトの開発をNext.jsに移行",
+  },
+  {
+    date: "2025年1月",
+    title: "ブログ「ともきちの旅行日記」開設",
+  },
+  {
+    date: "2025年5月",
+    title: "金融学習サイト「マネーマスター」開設",
+  },
+  {
+    date: "2025年7月",
+    title: "ルーレットサイト「Webでルーレット」開設",
+  },
+  {
+    date: "2025年10月",
+    title: "AIトラベルプランナー開発開始",
+  },
+];
+
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl p-4">
@@ -28,13 +67,13 @@ export default function AboutPage() {
 
       {/* 自己紹介文 */}
       <section className="prose prose-lg max-w-none dark:prose-invert prose-p:leading-relaxed prose-a:text-primary">
-        <p>
+        <p className="text-lg">
           Next.jsとTypeScriptを軸に、再利用性の高いコンポーネント設計と、誰もがストレスなく使えるUI/UXの実現に情熱を注いでいます。汎用的なコンポーネントが様々な場所で機能する瞬間に、開発者として大きな喜びを感じます。
         </p>
-        <p>
+        <p className="text-lg">
           この技術への探求心は、自身の「旅」の経験と深く結びついています。世界を旅する中で感じた感動やリアルな体験を共有し、他の人の役に立ちたいという思いからブログ『ともきちの旅行日記』を運営。そして現在は、旅先で感じる「あったらいいな」という不便を、自らの手で解決するツールの開発に力を入れています。
         </p>
-        <p>
+        <p className="text-lg">
           将来的には、AI技術を駆使してWebからモバイルまで迅速に開発できるエンジニアを目指しています。旅のコミュニティや、旅行体験そのものをより豊かにするサービスを通じて、技術で新しい世界への扉を開く手助けをしたいと考えています。
         </p>
       </section>
@@ -43,18 +82,12 @@ export default function AboutPage() {
       <section className="mt-16">
         <h2 className="text-2xl font-bold text-foreground">経歴 (Journey)</h2>
         <div className="mt-6 border-l-2 border-primary pl-6">
-          <div className="mb-6">
-            <h3 className="font-bold">プログラミング学習を開始</h3>
-            <p className="text-sm text-muted-foreground">2023年10月</p>
-          </div>
-          <div className="mb-6">
-            <h3 className="font-bold">ブログ「ともきちの旅行日記」開設</h3>
-            <p className="text-sm text-muted-foreground">2024年11月</p>
-          </div>
-          <div>
-            <h3 className="font-bold">AIトラベルプランナー開発</h3>
-            <p className="text-sm text-muted-foreground">2025年10月</p>
-          </div>
+          {journeys.map((journey, index) => (
+            <div key={index} className="mb-6">
+              <h3 className="font-bold">{journey.title}</h3>
+              <p className="text-sm text-muted-foreground">{journey.date}</p>
+            </div>
+          ))}
         </div>
       </section>
 
