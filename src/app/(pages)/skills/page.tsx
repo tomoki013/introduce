@@ -38,11 +38,6 @@ const backendSkills: Skill[] = [
     name: "Supabase",
     description: "主に個人開発での認証やDBとして利用経験があります。",
   },
-  {
-    name: "Firebase",
-    description:
-      "リアルタイムデータベースや認証機能を利用した開発経験があります。",
-  },
 ];
 const otherSkills: Skill[] = [
   {
@@ -50,7 +45,7 @@ const otherSkills: Skill[] = [
     description: "バージョン管理の基本的な操作は問題なく行えます。",
   },
   {
-    name: "AI (GPT APIなど)",
+    name: "AI (Gemini APIなど)",
     description:
       "AIを活用した機能開発（AIトラベルプランナー）の経験があります。",
   },

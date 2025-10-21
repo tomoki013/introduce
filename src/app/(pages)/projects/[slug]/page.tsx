@@ -88,24 +88,24 @@ export default async function ProjectDetailPage(props: {
           <h2 className="mb-4 text-xl font-bold text-foreground">リンク</h2>
           <div className="space-y-3">
             {project.details.links.url && (
-              <a
+              <Link
                 href={project.details.links.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
               >
                 <FiExternalLink /> サイトを見る
-              </a>
+              </Link>
             )}
             {project.details.links.github && (
-              <a
+              <Link
                 href={project.details.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
               >
                 <FiGithub /> GitHubリポジトリ
-              </a>
+              </Link>
             )}
           </div>
         </div>
