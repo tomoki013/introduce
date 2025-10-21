@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "スキル - Tomokichiのポートフォリオ",
+  description:
+    "Tomokichiのスキル一覧ページ。Webサイト・アプリケーション開発で使用する技術スタックを紹介します。",
+};
+
 // スキルカードの型定義
 type Skill = {
   name: string;

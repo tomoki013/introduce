@@ -3,6 +3,43 @@ import Image from "next/image";
 import Link from "next/link";
 import projects from "@/data/projects.json";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { Metadata } from "next";
+
+// 2. 動的にメタデータを生成
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  const project = projects.find((p) => p.slug === params.slug);
+  if (!project) {
+    notFound();
+  }
+
+  return {
+    title: project.title,
+    description: project.details.overview,
+    openGraph: {
+      title: project.title,
+      description: project.details.overview,
+      type: "article",
+      images: project.thumbnail
+        ? [
+            {
+              url: project.thumbnail,
+              width: 1200,
+              height: 630,
+              alt: project.title,
+            },
+          ]
+        : [],
+    },
+    twitter: {
+      title: project.title,
+      description: project.details.overview,
+      images: project.thumbnail ? [project.thumbnail] : [],
+    },
+  };
+}
 
 // ビルド時に各プロジェクトページのパスを静的に生成する
 export async function generateStaticParams() {
