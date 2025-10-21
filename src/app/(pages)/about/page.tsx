@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import TravelJourney from "@/components/TravelJourney";
+import TravelJourney from "@/components/features/journey/TravelJourney";
 
 export const metadata: Metadata = {
   title: "自己紹介 - Tomokichiのポートフォリオ",
@@ -96,7 +96,9 @@ export default function AboutPage() {
       <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
         {/* 経歴セクション */}
         <section>
-          <h2 className="text-2xl font-bold text-foreground">ITの経歴 (IT Journey)</h2>
+          <h2 className="text-2xl font-bold text-foreground">
+            ITの経歴 (IT Journey)
+          </h2>
           <div className="mt-6 border-l-2 border-primary pl-6">
             {journeys.map((journey, index) => (
               <div key={index} className="relative mb-8">
@@ -110,7 +112,9 @@ export default function AboutPage() {
                   <h3 className="mt-2 font-bold text-foreground">
                     {journey.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">{journey.date}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {journey.date}
+                  </p>
                 </div>
               </div>
             ))}
