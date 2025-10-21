@@ -8,7 +8,12 @@ import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import Link from "next/link";
 
-export const News = () => {
+type Props = {
+  limit?: number;
+};
+
+export const News = ({ limit }: Props) => {
+  const limitedNews = limit ? news.slice(0, limit) : news;
   return (
     <Section>
       <div className="flex items-center gap-2">
@@ -22,7 +27,7 @@ export const News = () => {
         className="mt-4 space-y-4"
       >
         <ul className="space-y-4">
-          {news.map((item, index) => (
+          {limitedNews.map((item, index) => (
             <li key={index} className="border-b border-border pb-2">
               <Link
                 href={item.url}
@@ -43,6 +48,16 @@ export const News = () => {
             </li>
           ))}
         </ul>
+        {limit && (
+          <div className="text-center">
+            <Link
+              href="/news"
+              className="inline-block font-semibold text-primary transition-colors hover:text-primary/80"
+            >
+              View All →
+            </Link>
+          </div>
+        )}
       </MotionDiv>
     </Section>
   );
