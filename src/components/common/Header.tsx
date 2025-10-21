@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import ThemeToggle from "../ThemeToggle";
+import ThemeToggle from "@/components/ui/ThemeToggle";
+import { MotionHeader, MotionDiv, MotionA } from "@/components/common/Motion";
 import { FiMenu, FiX, FiGithub } from "react-icons/fi";
-import { MotionHeader, MotionDiv, MotionA } from "../Motion";
 import { AnimatePresence } from "framer-motion";
 
 export default function Header() {

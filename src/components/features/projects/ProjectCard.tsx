@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { MotionDiv } from "@/components/Motion";
+import { MotionDiv } from "@/components/common/Motion";
 import type { Variants, Easing } from "framer-motion";
 
 type Project = {

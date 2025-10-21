@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FaGithub, FaPenSquare } from "react-icons/fa";
-import { MotionDiv } from "@/components/Motion";
+import { MotionDiv } from "@/components/common/Motion";
 
 const socialLinks = [
   {
