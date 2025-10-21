@@ -7,7 +7,7 @@
     "tags": ["Next.js", "TypeScript", "Tailwind CSS", "PWA"],
     "summary": "自身の旅行経験を記録・発信するために開発したブログサイト。SEO対策やPWA対応を行い、多くの読者に読まれるサイトを目指しました。",
     "details": {
-      "overview": "Next.jsとを活用した、個人的な旅行ブログです。MDによる記事執筆、画像の遅延読み込みによるパフォーマンス最適化など、モダンな技術を積極的に採用しています。",
+      "overview": "Next.jsを活用した、個人的な旅行ブログです。MDによる記事執筆、画像の遅延読み込みによるパフォーマンス最適化など、モダンな技術を積極的に採用しています。",
       "background": "海外旅行の際に、訪れた場所や体験を記録し、他の旅行者と情報を共有したいと考え、ブログサイトの開発を決意しました。",
       "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
       "features": [
@@ -31,12 +31,16 @@
     "isFeatured": true,
     "thumbnail": "/images/projects/travel-diary.jpg",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
-    "summary": "",
+    "summary": "日常のちょっとした意思決定を楽しくする、カスタマイズ可能なオンラインルーレット。Supabaseと連携し、ルーレットの保存・共有が可能です。",
     "details": {
-      "overview": "",
-      "background": "",
-      "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
-      "features": [],
+      "overview": "ユーザーが自由に項目を設定できるオンラインルーレットアプリケーションです。アニメーションやUI/UXにこだわり、直感的で楽しい体験を提供します。",
+      "background": "友人との食事の場所決めや、ゲームの役割分担など、日常の些細な選択を円滑かつ楽しくするために開発しました。",
+      "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
+      "features": [
+        "項目の自由なカスタマイズ",
+        "作成したルーレットの保存と共有機能",
+        "Supabaseを利用したデータ永続化"
+      ],
       "links": {
         "url": "https://webroulette.netlify.app/",
         "github": "https://github.com/tomoki013/roulette/"
@@ -53,12 +57,16 @@
     "isFeatured": true,
     "thumbnail": "/images/projects/travel-diary.jpg",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
-    "summary": "",
+    "summary": "NISAやiDeCoなど、日本の主要な金融制度について学べる学習サイト。複雑な制度を分かりやすく解説し、資産形成をサポートします。",
     "details": {
-      "overview": "",
-      "background": "",
+      "overview": "クイズ形式やシミュレーションを通じて、NISAやiDeCoといった金融制度の知識を深めることができるWebアプリケーションです。",
+      "background": "自身の資産形成の経験から、特に若い世代に向けて、複雑な金融制度をわかりやすく伝え、学習のハードルを下げたいという思いで開発しました。",
       "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
-      "features": [],
+      "features": [
+        "クイズ形式での知識確認",
+        "シミュレーション機能による資産増加の可視化",
+        "レスポンシブデザインによるスマホ対応"
+      ],
       "links": {
         "url": "https://money-master-ja.netlify.app/",
         "github": "https://github.com/tomoki013/money-master/"
