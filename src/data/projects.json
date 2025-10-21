@@ -29,7 +29,7 @@
     "slug": "web-roulette",
     "title": "WEBでルーレット",
     "isFeatured": true,
-    "thumbnail": "/images/projects/travel-diary.jpg",
+    "thumbnail": "/images/projects/web-roulette.jpg",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     "summary": "日常のちょっとした意思決定を楽しくする、カスタマイズ可能なオンラインルーレット。Supabaseと連携し、ルーレットの保存・共有が可能です。",
     "details": {
@@ -46,8 +46,8 @@
         "github": "https://github.com/tomoki013/roulette/"
       },
       "images": [
-        "/images/projects/travel-diary.jpg",
-        "/images/projects/travel-diary.jpg"
+        "/images/projects/web-roulette.jpg",
+        "/images/projects/web-roulette.jpg"
       ]
     }
   },
@@ -55,7 +55,7 @@
     "slug": "money-master",
     "title": "マネーマスター",
     "isFeatured": true,
-    "thumbnail": "/images/projects/travel-diary.jpg",
+    "thumbnail": "/images/projects/money-master.jpg",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
     "summary": "NISAやiDeCoなど、日本の主要な金融制度について学べる学習サイト。複雑な制度を分かりやすく解説し、資産形成をサポートします。",
     "details": {
@@ -72,8 +72,8 @@
         "github": "https://github.com/tomoki013/money-master/"
       },
       "images": [
-        "/images/projects/travel-diary.jpg",
-        "/images/projects/travel-diary.jpg"
+        "/images/projects/money-master.jpg",
+        "/images/projects/money-master.jpg"
       ]
     }
   }
