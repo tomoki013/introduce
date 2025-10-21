@@ -12,6 +12,7 @@ import {
   MotionSpan,
 } from "@/components/Motion";
 import { News } from "@/components/news/News";
+import { Blog } from "@/components/blog/Blog";
 
 export default function Home() {
   const featuredProjects = projects.filter((project) => project.isFeatured);
@@ -150,6 +151,9 @@ export default function Home() {
           ))}
         </MotionDiv>
       </MotionSection>
+
+      {/* Blog セクション */}
+      <Blog />
 
       {/* Skills セクション */}
       <MotionSection
