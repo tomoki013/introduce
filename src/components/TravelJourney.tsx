@@ -8,43 +8,48 @@ const travelImages = [
   "/images/introduce.jpg",
 ];
 
+const travelJourneys = [
+  {
+    date: "2015年",
+    title: "初めての海外旅行でタイへ",
+    description: "バックパッカースタイルで東南アジアを巡る旅の魅力に目覚める。",
+  },
+  {
+    date: "2017年",
+    title: "ヨーロッパ周遊",
+    description: "歴史的な建造物や多様な文化に触れ、視野を広げる。",
+  },
+  {
+    date: "2019年",
+    title: "南米大陸横断",
+    description: "壮大な自然と現地の温かい人々に感動。旅の経験を発信したいと思い始める。",
+  },
+  {
+    date: "2023年",
+    title: "ブログ「ともきちの旅行日記」運営開始",
+    description: "自身の体験を基に、これから旅立つ人への情報提供を始める。",
+  },
+];
+
+
 export default function TravelJourney() {
   return (
-    <section className="mt-16">
-      <h2 className="text-2xl font-bold text-foreground">旅と開発 (Travel & Development)</h2>
-      <div className="mt-6 prose prose-lg max-w-none dark:prose-invert prose-p:leading-relaxed">
-        <p>
-          世界を旅する中で得たインスピレーションが、私の開発の原動力です。
-          文化や価値観の違いに触れることで、多様な視点から物事を捉える力が養われました。
-          この経験は、ユーザー一人ひとりに寄り添ったUI/UXを設計する上で、非常に役立っています。
-        </p>
-        <p>
-          旅先での「もっとこうだったら便利なのに」という小さな気づきが、新しいサービスを生み出すアイデアの源泉となります。
-          私の目標は、テクノロジーの力で、旅の体験をより豊かでスムーズなものにすることです。
-        </p>
+    <section>
+      <h2 className="text-2xl font-bold text-foreground">旅の経歴 (Travel Journey)</h2>
+      <div className="mt-6 border-l-2 border-accent pl-6">
+        {travelJourneys.map((journey, index) => (
+          <div key={index} className="relative mb-8">
+            <div className="absolute -left-[calc(1.5rem+2px)] top-1 flex h-full items-start">
+              <div className="h-4 w-4 rounded-full border-2 border-accent bg-background" />
+            </div>
+            <div className="ml-4">
+              <h3 className="font-bold text-foreground">{journey.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{journey.description}</p>
+              <p className="text-sm text-muted-foreground">{journey.date}</p>
+            </div>
+          </div>
+        ))}
       </div>
-
-      {travelImages.length > 0 && (
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {travelImages.map((src, index) => (
-            <MotionDiv
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
-              className="overflow-hidden rounded-lg"
-            >
-              <Image
-                src={src}
-                alt={`Travel image ${index + 1}`}
-                width={400}
-                height={300}
-                className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
-              />
-            </MotionDiv>
-          ))}
-        </div>
-      )}
     </section>
   );
 }
