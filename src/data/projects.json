@@ -76,5 +76,119 @@
         "/images/projects/money-master.jpg"
       ]
     }
+  },
+  {
+    "slug": "introduce-v1",
+    "title": "自己紹介サイト v1",
+    "isFeatured": false,
+    "thumbnail": "/images/projects/introduce-v1.png",
+    "tags": ["HTML", "CSS"],
+    "summary": "初めて作成した自己紹介サイトです。基本的なHTMLとCSSを使用しています。",
+    "details": {
+      "overview": "初めて作成した自己紹介サイトです。",
+      "background": "Web開発の学習を始めた最初のステップとして作成しました。",
+      "techStack": ["HTML", "CSS"],
+      "features": [],
+      "links": {
+        "url": null,
+        "github": "https://github.com/tomoki013/introduce-v1"
+      },
+      "images": []
+    }
+  },
+  {
+    "slug": "introduce-v2",
+    "title": "自己紹介サイト v2",
+    "isFeatured": false,
+    "thumbnail": "/images/projects/introduce-v2.png",
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "summary": "自己紹介サイトの修正版です。JavaScriptを追加して、動きのある要素を加えました。",
+    "details": {
+      "overview": "自己紹介サイトの修正版です。v1にJavaScriptを追加しました。",
+      "background": "v1にインタラクティブな要素を追加するために開発しました。",
+      "techStack": ["HTML", "CSS", "JavaScript"],
+      "features": [],
+      "links": {
+        "url": null,
+        "github": "https://github.com/tomoki013/introduce-v2"
+      },
+      "images": []
+    }
+  },
+  {
+    "slug": "introduce-v3",
+    "title": "自己紹介サイト v3",
+    "isFeatured": false,
+    "thumbnail": "/images/projects/introduce-v3.png",
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "summary": "自己紹介サイトの最終版です。デザインや構成を見直しました。",
+    "details": {
+      "overview": "自己紹介サイトの最終版です。",
+      "background": "v2のデザインとコードをさらに改善するために開発しました。",
+      "techStack": ["HTML", "CSS", "JavaScript"],
+      "features": [],
+      "links": {
+        "url": null,
+        "github": "https://github.com/tomoki013/introduce-v3"
+      },
+      "images": []
+    }
+  },
+  {
+    "slug": "omikuji",
+    "title": "おみくじ",
+    "isFeatured": false,
+    "thumbnail": "/images/projects/omikuji.png",
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "summary": "JavaScriptで作成したシンプルなおみくじアプリです。",
+    "details": {
+      "overview": "JavaScriptの学習の一環として作成した、ランダムで結果が変わるおみくじアプリです。",
+      "background": "JavaScriptの基本的な文法やDOM操作を学ぶために作成しました。",
+      "techStack": ["HTML", "CSS", "JavaScript"],
+      "features": [],
+      "links": {
+        "url": null,
+        "github": "https://github.com/tomoki013/omikuji"
+      },
+      "images": []
+    }
+  },
+  {
+    "slug": "tech-blog",
+    "title": "ともきちのITブログ",
+    "isFeatured": false,
+    "thumbnail": "/images/projects/tech-blog.png",
+    "tags": ["Next.js", "TypeScript", "SCSS", "Tailwind CSS"],
+    "summary": "Next.jsとTypeScriptで構築したIT技術に関するブログです。",
+    "details": {
+      "overview": "自身の学習記録や技術的な知見をアウトプットするために作成したブログサイトです。",
+      "background": "モダンなフロントエンド技術の学習と、情報発信力の向上を目的に開発しました。",
+      "techStack": ["Next.js", "TypeScript", "SCSS", "Tailwind CSS"],
+      "features": [],
+      "links": {
+        "url": "https://tech-blog-beta-one.vercel.app/",
+        "github": "https://github.com/tomoki013/tech-blog"
+      },
+      "images": []
+    }
+  },
+  {
+    "slug": "stock-simulation",
+    "title": "株シミュレーション",
+    "isFeatured": false,
+    "thumbnail": "/images/projects/stock-simulation.png",
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "summary": "JavaScriptで作成した株のシミュレーションサイトです。",
+    "details": {
+      "overview": "株価の変動をシミュレートするシンプルなWebアプリケーションです。",
+      "background": "API連携や非同期処理の学習のために開発しました。",
+      "techStack": ["HTML", "CSS", "JavaScript"],
+      "features": [],
+      "links": {
+        "url": null,
+        "github": "https://github.com/tomoki013/stock-simulation"
+      },
+      "images": []
+    }
   }
 ]
