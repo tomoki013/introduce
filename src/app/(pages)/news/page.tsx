@@ -1,4 +1,3 @@
-"use client";
 
 import { FaRegNewspaper } from "react-icons/fa";
 import { MotionDiv, MotionH2 } from "@/components/Motion";
@@ -6,15 +5,15 @@ import { Section } from "@/components/layouts/Section";
 import news from "@/data/news.json";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
-import Link from "next/link";
+import { Metadata } from "next";
 
-type NewsProps = {
-  limit?: number;
+export const metadata: Metadata = {
+  title: "News",
+  description: "All news articles.",
 };
 
-export const News = ({ limit }: NewsProps) => {
-  const displayedNews = limit ? news.slice(0, limit) : news;
 
+export default function NewsPage() {
   return (
     <Section>
       <div className="flex items-center gap-2">
@@ -28,7 +27,7 @@ export const News = ({ limit }: NewsProps) => {
         className="mt-4 space-y-4"
       >
         <ul className="space-y-4">
-          {displayedNews.map((item, index) => (
+          {news.map((item, index) => (
             <li key={index} className="border-b border-border pb-2">
               <a
                 href={item.url}
@@ -49,17 +48,7 @@ export const News = ({ limit }: NewsProps) => {
             </li>
           ))}
         </ul>
-        {limit && news.length > limit && (
-          <div className="text-right">
-            <Link
-              href="/news"
-              className="font-semibold text-primary transition-colors hover:text-primary/80"
-            >
-              View More →
-            </Link>
-          </div>
-        )}
       </MotionDiv>
     </Section>
   );
-};
+}
