@@ -18,31 +18,36 @@ type Props = {
 
 export const News = ({ news = newsData }: Props) => {
   return (
-    <ul className="space-y-4">
+    <ul className="space-y-2">
       {news.map((item, index) => (
-        <li key={index} className="border-b border-border pb-2">
-          <Link
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 group"
+        <li
+          key={index}
+          className="flex flex-col border-b border-border py-4 sm:flex-row sm:items-baseline sm:gap-4"
+        >
+          <time
+            dateTime={item.date}
+            className="mb-1 text-sm text-muted-foreground sm:mb-0 sm:w-24"
           >
-            <time
-              dateTime={item.date}
-              className="text-sm whitespace-nowrap"
+            {format(new Date(item.date), "yyyy/MM/dd", { locale: ja })}
+          </time>
+          <div className="flex-grow">
+            <Link
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary transition-colors hover:text-accent"
             >
-              {format(new Date(item.date), "yyyy/MM/dd", { locale: ja })}
-            </time>
-            <p className="text-primary group-hover:text-accent transition-colors">
               {item.title}
-            </p>
-          </Link>
-          <div className="flex flex-wrap gap-2 mt-2">
+            </Link>
+          </div>
+          <div className="mt-2 flex flex-wrap gap-2 sm:mt-0 sm:flex-shrink-0 sm:justify-end">
             {item.tags.map((tag) => (
-              <Link key={tag} href={`/news/${tag.toLowerCase()}`}>
-                <span className="px-2 py-1 text-xs rounded-full bg-secondary text-secondary-foreground">
-                  {tag}
-                </span>
+              <Link
+                key={tag}
+                href={`/news/${tag.toLowerCase()}`}
+                className="block rounded-full border border-primary px-3 py-1 text-xs text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                {tag}
               </Link>
             ))}
           </div>

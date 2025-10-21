@@ -14,25 +14,29 @@ export const NewsList = ({ news, tags }: Props) => {
     ? news.filter((item) => item.tags.includes(selectedTag))
     : news;
 
+  const baseClasses =
+    "rounded-full border px-4 py-1 text-sm transition-colors";
+  const activeClasses = "border-primary bg-primary text-primary-foreground";
+  const inactiveClasses =
+    "border-border bg-transparent text-muted-foreground hover:bg-muted";
+
   return (
     <div>
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="mb-8 flex flex-wrap gap-2">
         <button
           onClick={() => setSelectedTag(null)}
-          className={`px-3 py-1 rounded-full text-sm ${
-            !selectedTag ? "bg-primary text-primary-foreground" : "bg-muted"
+          className={`${baseClasses} ${
+            !selectedTag ? activeClasses : inactiveClasses
           }`}
         >
-          All
+          すべて
         </button>
         {tags.map((tag) => (
           <button
             key={tag}
             onClick={() => setSelectedTag(tag)}
-            className={`px-3 py-1 rounded-full text-sm ${
-              selectedTag === tag
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted"
+            className={`${baseClasses} ${
+              selectedTag === tag ? activeClasses : inactiveClasses
             }`}
           >
             {tag}
