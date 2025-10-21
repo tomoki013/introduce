@@ -1,4 +1,11 @@
-import { FiGithub, FiGlobe } from "react-icons/fi"; // react-icons を利用
+import { Metadata } from "next";
+import { FiGithub, FiGlobe } from "react-icons/fi";
+
+export const metadata: Metadata = {
+  title: "お問い合わせ - Tomokichiのポートフォリオ",
+  description:
+    "Tomokichiへのお問い合わせページ。お仕事のご依頼、技術的なご相談などはこちらからご連絡ください。",
+};
 
 export default function ContactPage() {
   return (

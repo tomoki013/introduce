@@ -3,12 +3,47 @@ import "./globals.css";
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { Metadata } from "next";
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-noto-sans-jp",
 });
+
+export const metadata: Metadata = {
+  title: {
+    default: "Tomokichi - Portfolio",
+    template: "%s - Tomokichi",
+  },
+  description:
+    "Welcome to my portfolio! I'm Tomokichi, a passionate developer specializing in web and mobile applications. Explore my projects, skills, and experiences.",
+  authors: [{ name: "Tomokichi" }],
+  openGraph: {
+    title: "Tomokichi - Portfolio",
+    description:
+      "Welcome to my portfolio! I'm Tomokichi, a passionate developer specializing in web and mobile applications. Explore my projects, skills, and experiences.",
+    // url: "https://tomokichidiary.netlify.app/",
+    siteName: "Tomokichi - Portfolio",
+    type: "website",
+    images: [
+      {
+        url: "favicon.ico",
+        width: 1200,
+        height: 630,
+        alt: "Tomokichi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tomokichi - Portfolio",
+    description:
+      "Welcome to my portfolio! I'm Tomokichi, a passionate developer specializing in web and mobile applications. Explore my projects, skills, and experiences.",
+    images: ["favicon.ico"],
+  },
+  // metadataBase: new URL("https://tomokichidiary.netlify.app"),
+};
 
 export default function RootLayout({
   children,

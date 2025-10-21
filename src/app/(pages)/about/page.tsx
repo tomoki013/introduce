@@ -1,5 +1,12 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "自己紹介 - Tomokichiのポートフォリオ",
+  description:
+    "Tomokichiの自己紹介ページ。技術への探求心と旅の経験を活かしたエンジニアとしてのビジョンを紹介します。",
+};
 
 export default function AboutPage() {
   return (
