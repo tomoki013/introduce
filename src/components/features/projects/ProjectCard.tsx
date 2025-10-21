@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { MotionDiv } from "@/components/Motion";
+import type { Variants, Easing } from "framer-motion";
 
 type Project = {
   slug: string;
@@ -11,7 +14,7 @@ type Project = {
 };
 
 export default function ProjectCard({ project }: { project: Project }) {
-  const cardVariants = {
+  const cardVariants: Variants = {
     initial: {
       scale: 1,
       boxShadow: "0px 0px 0px var(--primary-a10)",
@@ -28,10 +31,27 @@ export default function ProjectCard({ project }: { project: Project }) {
       borderColor: "var(--primary)",
       transition: {
         duration: 0.4,
-        ease: "easeInOut",
+        // Use a typed easing function created from cubic-bezier control points.
+        ease: cubicBezier(0.42, 0, 0.58, 1),
       },
     },
   };
+
+  // Create a cubic-bezier easing function compatible with framer-motion's Easing type.
+  // This is a lightweight implementation that returns a function (t:number)=>number.
+  function cubicBezier(x1: number, y1: number, x2: number, y2: number): Easing {
+    // Implementation based on Robert Penner's approach adapted for small usage.
+    // For accuracy-critical uses, consider importing a well-tested library.
+    return function (t: number) {
+      // Use Bernstein polynomial form for cubic Bezier y(t):
+      // B(t) = (1-t)^3*0 + 3(1-t)^2*t*y1 + 3(1-t)*t^2*y2 + t^3*1
+      const u = 1 - t;
+      const tt = t * t;
+      const uu = u * u;
+      const v = 3 * uu * t * y1 + 3 * u * tt * y2 + tt * t;
+      return v;
+    };
+  }
 
   const imageVariants = {
     hover: {
