@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import TravelJourney from "@/components/TravelJourney";
 
 export const metadata: Metadata = {
   title: "自己紹介 - Tomokichiのポートフォリオ",
@@ -92,9 +93,11 @@ export default function AboutPage() {
         </p>
       </section>
 
+      <TravelJourney />
+
       {/* 経歴セクション */}
       <section className="mt-16">
-        <h2 className="text-2xl font-bold text-foreground">経歴 (Journey)</h2>
+        <h2 className="text-2xl font-bold text-foreground">ITの経歴 (IT Journey)</h2>
         <div className="mt-6 border-l-2 border-primary pl-6">
           {journeys.map((journey, index) => (
             <div key={index} className="relative mb-8">
