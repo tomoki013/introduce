@@ -1,4 +1,4 @@
-import { Noto_Sans_JP } from "next/font/google";
+import { Noto_Sans_JP, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
@@ -9,6 +9,14 @@ const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-noto-sans-jp",
+  display: "swap",
+});
+
+const shareTechMono = Share_Tech_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-share-tech-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -53,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body
-        className={`${notoSansJp.variable} bg-background text-foreground antialiased`}
+        className={`${shareTechMono.variable} ${notoSansJp.variable} bg-background text-foreground antialiased scanlines`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />

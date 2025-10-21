@@ -16,16 +16,32 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-4 md:flex">
-          <Link href="/about" className="transition-colors hover:text-primary">
+          <Link
+            href="/about"
+            className="glitch transition-colors hover:text-primary"
+            data-text="About"
+          >
             About
           </Link>
-          <Link href="/projects" className="transition-colors hover:text-primary">
+          <Link
+            href="/projects"
+            className="glitch transition-colors hover:text-primary"
+            data-text="Projects"
+          >
             Projects
           </Link>
-          <Link href="/skills" className="transition-colors hover:text-primary">
+          <Link
+            href="/skills"
+            className="glitch transition-colors hover:text-primary"
+            data-text="Skills"
+          >
             Skills
           </Link>
-          <Link href="/contact" className="transition-colors hover:text-primary">
+          <Link
+            href="/contact"
+            className="glitch transition-colors hover:text-primary"
+            data-text="Contact"
+          >
             Contact
           </Link>
         </div>
@@ -55,21 +71,31 @@ export default function Header() {
       {isMenuOpen && (
         <div className="absolute left-0 w-full bg-background p-4 md:hidden">
           <nav className="flex flex-col items-center gap-4">
-            <Link href="/about" className="transition-colors hover:text-primary">
+            <Link
+              href="/about"
+              className="glitch transition-colors hover:text-primary"
+              data-text="About"
+            >
               About
             </Link>
             <Link
               href="/projects"
-              className="transition-colors hover:text-primary"
+              className="glitch transition-colors hover:text-primary"
+              data-text="Projects"
             >
               Projects
             </Link>
-            <Link href="/skills" className="transition-colors hover:text-primary">
+            <Link
+              href="/skills"
+              className="glitch transition-colors hover:text-primary"
+              data-text="Skills"
+            >
               Skills
             </Link>
             <Link
               href="/contact"
-              className="transition-colors hover:text-primary"
+              className="glitch transition-colors hover:text-primary"
+              data-text="Contact"
             >
               Contact
             </Link>
