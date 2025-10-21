@@ -1,6 +1,5 @@
 import projects from "@/data/projects.json";
 import { getAllPosts } from "@/lib/blog";
-
 import Hero from "@/components/features/home/Hero";
 import { News } from "@/components/features/news/News";
 import AboutMe from "@/components/features/home/AboutMe";

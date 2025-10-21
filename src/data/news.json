@@ -2,6 +2,19 @@
   {
     "date": "2025-10-21",
     "title": "ポートフォリオサイトを開設しました。",
-    "url": "https://tomokichi.netlify.app/"
+    "url": "https://tomokichi.netlify.app/",
+    "tags": ["お知らせ"]
+  },
+  {
+    "date": "2024-07-21",
+    "title": "React 19: The Major Update and Its Impact",
+    "url": "https://qiita.com/Tomokichi_M/items/c81d31c4b7d1e15a63c6",
+    "tags": ["技術ブログ"]
+  },
+  {
+    "date": "2023-08-15",
+    "title": "My First Solo Trip to the USA!",
+    "url": "https://www.tomokichidiary.com/entry/2023/08/15/180000",
+    "tags": ["旅行ブログ"]
   }
 ]
