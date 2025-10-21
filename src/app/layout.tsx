@@ -1,9 +1,9 @@
 import { Noto_Sans_JP, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layouts/Header";
-import Footer from "@/components/layouts/Footer";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import ScrollProgress from "@/components/layouts/ScrollProgress";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
+import ScrollProgress from "@/components/common/ScrollProgress";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Metadata } from "next";
 
 const notoSansJp = Noto_Sans_JP({

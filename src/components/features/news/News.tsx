@@ -1,6 +1,9 @@
 "use client";
 
-import newsData from "@/data/news.json";
+import { FaRegNewspaper } from "react-icons/fa";
+import { MotionDiv, MotionH2 } from "@/components/common/Motion";
+import { Section } from "@/components/common/Section";
+import news from "@/data/news.json";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import Link from "next/link";
