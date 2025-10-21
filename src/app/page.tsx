@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import projects from "@/data/projects.json";
 import ProjectCard from "@/components/features/projects/ProjectCard";
+import type { Variants } from "framer-motion";
 import {
   MotionSection,
   MotionH1,
@@ -25,7 +26,6 @@ export default function Home() {
       },
     },
   };
-
   const glitchVariants = {
     hidden: { opacity: 0, x: -10, y: 10 },
     visible: {
@@ -34,12 +34,12 @@ export default function Home() {
       y: [0, 10, -5, 5, -10, 0],
       transition: {
         duration: 0.8,
-        ease: "easeInOut",
+        ease: [0.42, 0, 0.58, 1] as [number, number, number, number],
       },
     },
   };
 
-  const skillVariants = {
+  const skillVariants: Variants = {
     hidden: { opacity: 0, scale: 0.5, rotate: -45 },
     visible: {
       opacity: 1,
@@ -135,7 +135,10 @@ export default function Home() {
         <h2 className="mb-8 text-center text-3xl font-bold text-foreground">
           Featured Projects
         </h2>
-        <MotionDiv className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3" variants={sectionVariants}>
+        <MotionDiv
+          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+          variants={sectionVariants}
+        >
           {featuredProjects.slice(0, 3).map((project) => (
             <MotionDiv key={project.slug} variants={skillVariants}>
               <ProjectCard project={project} />
