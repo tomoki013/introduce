@@ -51,34 +51,14 @@ export default function Footer() {
                   お問い合わせ
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* ソーシャル */}
-          <div>
-            <h4 className="font-bold">ソーシャル</h4>
-            <ul className="mt-4 space-y-2">
               <li>
-                <a
-                  href="https://github.com/tomoki013/introduce"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/social"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
-                  GitHub
-                </a>
+                  ソーシャル
+                </Link>
               </li>
-              <li>
-                <a
-                  href="https://www.tomokichidiary.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  ともきちの旅行日記
-                </a>
-              </li>
-              {/* 必要であればX（旧Twitter）なども追加 */}
             </ul>
           </div>
         </div>
