@@ -128,18 +128,14 @@ export default async function ProjectDetailPage(props: {
 
       {/* 詳細説明 */}
       <section className="prose prose-lg max-w-none dark:prose-invert prose-p:leading-relaxed prose-a:text-primary">
-        <h2>概要</h2>
-        <p>{project.details.overview}</p>
+        <h2>背景にあった課題</h2>
+        <p>{project.details.challenge}</p>
 
-        <h2>背景・目的</h2>
-        <p>{project.details.background}</p>
+        <h2>自身の提案・解決策</h2>
+        <p>{project.details.solution}</p>
 
-        <h2>工夫した点</h2>
-        <ul>
-          {project.details.features.map((feature, index) => (
-            <li key={index}>{feature}</li>
-          ))}
-        </ul>
+        <h2>導入した結果や学び</h2>
+        <p>{project.details.outcome}</p>
       </section>
 
       {/* 戻るボタン */}

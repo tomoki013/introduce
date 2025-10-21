@@ -1,12 +1,4 @@
 "use client";
-import { MotionDiv } from "@/components/Motion";
-import Image from "next/image";
-
-const travelImages = [
-  "/images/introduce.jpg",
-  "/images/introduce.jpg",
-  "/images/introduce.jpg",
-];
 
 const travelJourneys = [
   {
