@@ -12,38 +12,52 @@ const journeys = [
   {
     date: "2024年5月",
     title: "プログラミング学習を開始（HTML,CSS,JavaScript,Python）",
+    category: "学習",
   },
   {
     date: "2024年7月",
     title: "HTML,CSS,JavaScriptを使った簡単な自己紹介サイトを作成",
+    category: "開発",
   },
   {
     date: "2024年8月",
     title: "HTML,CSS,JavaScriptを使ったブログサイトの開発開始",
+    category: "開発",
   },
   {
     date: "2024年11月",
     title: "Next.jsとTypeScriptを学習開始",
+    category: "学習",
   },
   {
     date: "2024年11月",
     title: "ブログサイトの開発をNext.jsに移行",
+    category: "開発",
   },
   {
     date: "2025年1月",
     title: "ブログ「ともきちの旅行日記」開設",
+    category: "リリース",
   },
   {
     date: "2025年5月",
     title: "金融学習サイト「マネーマスター」開設",
+    category: "リリース",
   },
   {
     date: "2025年7月",
     title: "ルーレットサイト「Webでルーレット」開設",
+    category: "リリース",
+  },
+  {
+    date: "2025年9月",
+    title: "自己紹介サイトを開設",
+    category: "リリース",
   },
   {
     date: "2025年10月",
     title: "AIトラベルプランナー開発開始",
+    category: "開発",
   },
 ];
 
@@ -83,9 +97,19 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold text-foreground">経歴 (Journey)</h2>
         <div className="mt-6 border-l-2 border-primary pl-6">
           {journeys.map((journey, index) => (
-            <div key={index} className="mb-6">
-              <h3 className="font-bold">{journey.title}</h3>
-              <p className="text-sm text-muted-foreground">{journey.date}</p>
+            <div key={index} className="relative mb-8">
+              <div className="absolute -left-[calc(1.5rem+2px)] top-1 flex h-full items-start">
+                <div className="h-4 w-4 rounded-full border-2 border-primary bg-background" />
+              </div>
+              <div className="ml-4">
+                <span className="rounded-full bg-primary px-2 py-1 text-xs text-primary-foreground">
+                  {journey.category}
+                </span>
+                <h3 className="mt-2 font-bold text-foreground">
+                  {journey.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">{journey.date}</p>
+              </div>
             </div>
           ))}
         </div>
