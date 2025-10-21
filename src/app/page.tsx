@@ -135,11 +135,13 @@ export default function Home() {
         <h2 className="mb-8 text-center text-3xl font-bold text-foreground">
           Featured Projects
         </h2>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <MotionDiv className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3" variants={sectionVariants}>
           {featuredProjects.slice(0, 3).map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <MotionDiv key={project.slug} variants={skillVariants}>
+              <ProjectCard project={project} />
+            </MotionDiv>
           ))}
-        </div>
+        </MotionDiv>
       </MotionSection>
 
       {/* Skills セクション */}
