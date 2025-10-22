@@ -11,7 +11,7 @@
       "background": "海外旅行の際に、訪れた場所や体験を記録し、他の旅行者と情報を共有したいと考え、ブログサイトの開発を決意しました。",
       "challenge": "旅行の記録をただの日記で終わらせず、他の旅行者の役にも立つような、検索されやすく、かつ快適に閲覧できるプラットフォームをどう構築するか。",
       "solution": "Next.jsのSSG（静的サイト生成）機能で高速な表示を実現し、SEO対策を徹底。PWA対応によりオフラインでも閲覧可能にし、旅行中でもアクセスしやすいようにした。",
-      "outcome": "多くの旅行好きからアクセスされるブログへと成長。旅行先での実体験に基づいた情報が評価され、SNSでも度々シェアされるようになった。",
+      "outcome": "多くの旅行好きからアクセスされるブログへと成長。",
       "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
       "features": [
         "静的サイト生成（SSG）による高速なページ表示",
@@ -40,7 +40,7 @@
       "background": "友人との食事の場所決めや、ゲームの役割分担など、日常の些細な選択を円滑かつ楽しくするために開発しました。",
       "challenge": "単にランダムな結果を表示するだけでなく、ユーザーが「また使いたい」と思えるような、楽しくて直感的なUI/UXをどう実現するか。",
       "solution": "アニメーションを効果的に使用し、ルーレットが回転するワクワク感を演出。Supabaseを導入し、作成したルーレットを保存・共有できる機能を実装した。",
-      "outcome": "友人同士の集まりやオンラインイベントなどで活用される人気ツールに。カスタマイズ性の高さが評価され、多くのユーザーに利用されている。",
+      "outcome": "",
       "techStack": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
       "features": [
         "項目の自由なカスタマイズ",
@@ -63,13 +63,13 @@
     "isFeatured": true,
     "thumbnail": "/images/projects/money-master.jpg",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
-    "summary": "NISAやiDeCoなど、日本の主要な金融制度について学べる学習サイト。複雑な制度を分かりやすく解説し、資産形成をサポートします。",
+    "summary": "",
     "details": {
-      "overview": "クイズ形式やシミュレーションを通じて、NISAやiDeCoといった金融制度の知識を深めることができるWebアプリケーションです。",
-      "background": "自身の資産形成の経験から、特に若い世代に向けて、複雑な金融制度をわかりやすく伝え、学習のハードルを下げたいという思いで開発しました。",
-      "challenge": "NISAやiDeCoといった複雑な金融制度を、専門知識がない人にも分かりやすく、かつ飽きさせずに学んでもらうための方法は何か。",
-      "solution": "クイズ形式で楽しく知識を確認できるようにし、シミュレーション機能で資産の増え方を視覚的に体験できるようにした。専門用語は極力避け、平易な言葉で解説。",
-      "outcome": "金融学習の入門サイトとして、多くの学生や社会人に利用される。特にシミュレーション機能が「資産形成のイメージが湧いた」と好評を得た。",
+      "overview": "",
+      "background": "",
+      "challenge": "",
+      "solution": "",
+      "outcome": "",
       "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
       "features": [
         "クイズ形式での知識確認",
@@ -102,7 +102,7 @@
       "techStack": ["HTML", "CSS"],
       "features": [],
       "links": {
-        "url": null,
+        "url": "https://tomoki013.github.io/introduce-v1/introduce.html",
         "github": "https://github.com/tomoki013/introduce-v1"
       },
       "images": []
@@ -124,7 +124,7 @@
       "techStack": ["HTML", "CSS", "JavaScript"],
       "features": [],
       "links": {
-        "url": null,
+        "url": "https://tomoki013.github.io/introduce-v2/html/introduce.html",
         "github": "https://github.com/tomoki013/introduce-v2"
       },
       "images": []
@@ -146,7 +146,7 @@
       "techStack": ["HTML", "CSS", "JavaScript"],
       "features": [],
       "links": {
-        "url": null,
+        "url": "https://tomoki013.github.io/introduce-v3/html/introduce.html",
         "github": "https://github.com/tomoki013/introduce-v3"
       },
       "images": []
@@ -168,7 +168,7 @@
       "techStack": ["HTML", "CSS", "JavaScript"],
       "features": [],
       "links": {
-        "url": null,
+        "url": "https://tomoki013.github.io/omikuji/html/omikuji.html",
         "github": "https://github.com/tomoki013/omikuji"
       },
       "images": []
@@ -212,7 +212,7 @@
       "techStack": ["HTML", "CSS", "JavaScript"],
       "features": [],
       "links": {
-        "url": null,
+        "url": "https://tomoki013.github.io/stock-simulation/stock-sim.html",
         "github": "https://github.com/tomoki013/stock-simulation"
       },
       "images": []

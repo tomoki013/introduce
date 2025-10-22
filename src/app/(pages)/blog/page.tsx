@@ -2,6 +2,12 @@ import { getAllPosts } from "@/lib/blog";
 import PostCard from "@/components/features/blog/PostCard";
 import { Section } from "@/components/common/Section";
 import { MotionH1, MotionDiv } from "@/components/common/Motion";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "All the latest blog posts.",
+};
 
 export default function BlogIndex() {
   const allPosts = getAllPosts();
@@ -17,6 +23,11 @@ export default function BlogIndex() {
         >
           Blog
         </MotionH1>
+        {allPosts.length === 0 && (
+          <p className="text-center text-lg text-muted-foreground">
+            No blog posts available.
+          </p>
+        )}
         <MotionDiv
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

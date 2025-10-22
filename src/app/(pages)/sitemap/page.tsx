@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "サイトマップ - Tomokichiのポートフォリオ",
-  description: "Tomokichiのポートフォリオサイトのサイトマップページです。",
+  title: "Sitemap",
+  description: "Tomokichi Official Websiteのサイトマップページです。",
 };
 
 const pages = [

@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import SocialLinksClient from "./SocialLinksClient";
+import SocialLinksClient from "../../../components/pages/social/SocialLinksClient";
 
 export const metadata: Metadata = {
-  title: "ソーシャル - Tomokichiのポートフォリオ",
+  title: "Social",
   description: "Tomokichiのソーシャルメディアリンク一覧です。",
 };
 

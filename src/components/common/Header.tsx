@@ -35,7 +35,7 @@ export default function Header() {
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between p-4">
         <Link href="/" className="text-xl font-bold">
-          Tomokichi
+          Tomokichi <span className="text-primary">Official</span> Website
         </Link>
 
         {/* Desktop Navigation */}
@@ -65,7 +65,7 @@ export default function Header() {
             variants={navLinkVariants}
             whileHover="hover"
           >
-            blog
+            Blog
           </MotionA>
           <MotionA
             href="/contact"
@@ -129,13 +129,13 @@ export default function Header() {
                 Projects
               </MotionA>
               <MotionA
-                href="/skills"
+                href="/blog"
                 className="glitch transition-colors hover:text-primary"
                 data-text="Skills"
                 variants={navLinkVariants}
                 whileHover="hover"
               >
-                Skills
+                Blog
               </MotionA>
               <MotionA
                 href="/contact"

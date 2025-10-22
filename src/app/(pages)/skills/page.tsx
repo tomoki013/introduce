@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "スキル - Tomokichiのポートフォリオ",
+  title: "Skills",
   description:
     "Tomokichiのスキル一覧ページ。Webサイト・アプリケーション開発で使用する技術スタックを紹介します。",
 };
@@ -58,10 +58,7 @@ const otherSkills: Skill[] = [
 // スキルカードコンポーネント
 const SkillCard = ({ skill }: { skill: Skill }) => (
   <div className="group rounded-lg border bg-card p-6 text-card-foreground transition-all hover:border-primary hover:shadow-lg hover:shadow-primary/10">
-    <h3
-      className="group-hover:glitch text-lg font-bold"
-      data-text={skill.name}
-    >
+    <h3 className="group-hover:glitch text-lg font-bold" data-text={skill.name}>
       {skill.name}
     </h3>
     <p className="mt-2 text-muted-foreground">{skill.description}</p>
