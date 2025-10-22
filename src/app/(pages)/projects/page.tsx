@@ -3,7 +3,7 @@ import projects from "@/data/projects.json";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "制作実績 - Tomokichiのポートフォリオ",
+  title: "Projects",
   description:
     "Tomokichiの制作実績ページ。これまで開発してきたプロダクトや大学での課題などを掲載しています。",
 };

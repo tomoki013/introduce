@@ -20,13 +20,18 @@ export default function LatestPosts({ posts }: Props) {
         >
           Latest Blog Posts
         </MotionH2>
+        {posts.length === 0 && (
+          <p className="text-center text-lg text-muted-foreground">
+            No blog posts available.
+          </p>
+        )}
         <MotionDiv
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {posts.map((post) => (
+          {posts.slice(0, 3).map((post) => (
             <PostCard key={post.slug} post={post} />
           ))}
         </MotionDiv>

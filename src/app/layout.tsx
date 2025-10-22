@@ -22,18 +22,18 @@ const shareTechMono = Share_Tech_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Tomokichi - Portfolio",
-    template: "%s - Tomokichi",
+    default: "Tomokichi Official Website",
+    template: "%s - Tomokichi Official Website",
   },
   description:
     "Welcome to my portfolio! I'm Tomokichi, a passionate developer specializing in web and mobile applications. Explore my projects, skills, and experiences.",
   authors: [{ name: "Tomokichi" }],
   openGraph: {
-    title: "Tomokichi - Portfolio",
+    title: "Tomokichi Official Website",
     description:
       "Welcome to my portfolio! I'm Tomokichi, a passionate developer specializing in web and mobile applications. Explore my projects, skills, and experiences.",
-    // url: "https://tomokichidiary.netlify.app/",
-    siteName: "Tomokichi - Portfolio",
+    url: "https://tomokichi.netlify.app/",
+    siteName: "Tomokichi Official Website",
     type: "website",
     images: [
       {
@@ -46,12 +46,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tomokichi - Portfolio",
+    title: "Tomokichi Official Website",
     description:
       "Welcome to my portfolio! I'm Tomokichi, a passionate developer specializing in web and mobile applications. Explore my projects, skills, and experiences.",
     images: ["favicon.ico"],
   },
-  // metadataBase: new URL("https://tomokichidiary.netlify.app"),
+  metadataBase: new URL("https://tomokichi.netlify.app"),
 };
 
 export default function RootLayout({
