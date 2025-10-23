@@ -6,10 +6,12 @@ import { ja } from "date-fns/locale";
 import Link from "next/link";
 
 export type NewsItem = {
+  id: string;
   date: string;
   title: string;
   url: string;
   tags: string[];
+  content: string;
 };
 
 type Props = {
@@ -23,9 +25,7 @@ export const News = ({ news = newsData, limit = 5 }: Props) => {
       {news.slice(0, limit).map((item, index) => (
         <li key={index} className="border-b border-border pb-2">
           <Link
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`/news/${item.id}`}
             className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 group"
           >
             <time dateTime={item.date} className="text-sm whitespace-nowrap">
