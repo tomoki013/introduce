@@ -4,61 +4,133 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
-const postsDirectory = path.join(process.cwd(), "posts");
+// 設定ファイルのパス (サブモジュール内を指す)
+const configPath = path.join(process.cwd(), "posts", "introduce.config.json");
+// サブモジュールのルートパス
+const postsBaseDir = path.join(process.cwd(), "posts");
 
+interface IntroduceConfig {
+  directories: string[];
+}
+
+// --- ヘルパー関数 ---
+function getConfig(): IntroduceConfig {
+  if (!fs.existsSync(configPath)) {
+    throw new Error(`Configuration file not found at ${configPath}`);
+  }
+  const configFile = fs.readFileSync(configPath, "utf8");
+  // JSON.parseにtry-catchを追加してエラーハンドリングを強化
+  try {
+    return JSON.parse(configFile);
+  } catch (error) {
+    throw new Error(
+      `Failed to parse config file at ${configPath}: ${
+        error instanceof Error ? error.message : String(error)
+      }`
+    );
+  }
+}
+
+function getPostDirectories(): string[] {
+  const config = getConfig();
+  // postsサブモジュール内の絶対パスに変換
+  return config.directories.map((dir) => path.join(postsBaseDir, dir));
+}
+
+// --- 主要な関数 ---
 export type PostData = {
   slug: string;
   title: string;
   date: string;
+  [key: string]: unknown; // Frontmatterの他のフィールドも許容
 };
 
 export function getAllPosts(): PostData[] {
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, "");
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents);
+  const postDirectories = getPostDirectories();
+  const allPostsData = postDirectories.flatMap((dir) => {
+    if (!fs.existsSync(dir)) {
+      console.warn(`Directory not found, skipping: ${dir}`);
+      return [];
+    }
+    try {
+      const fileNames = fs.readdirSync(dir).filter((f) => f.endsWith(".md")); // .mdのみ対象
+      return fileNames.map((fileName) => {
+        const slug = fileName.replace(/\.md$/, "");
+        const fullPath = path.join(dir, fileName);
+        const fileContents = fs.readFileSync(fullPath, "utf8");
+        const { data } = matter(fileContents); // matterResult を分割代入に変更
 
-    return {
-      slug,
-      ...(matterResult.data as { title: string; date: string }),
-    };
-  });
-
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
+        return {
+          ...(data as { title: string; date: string }), // スプレッドを先に
+          slug, // スラッグで上書き
+        };
+      });
+    } catch (error) {
+      console.error(`Error reading directory ${dir}:`, error);
+      return []; // エラーが発生したディレクトリはスキップ
     }
   });
+
+  // 日付でソート
+  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export async function getAllPostSlugs() {
-  const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        slug: fileName.replace(/\.md$/, ""),
-      },
-    };
+  const postDirectories = getPostDirectories();
+  const paths = postDirectories.flatMap((dir) => {
+    if (!fs.existsSync(dir)) {
+      return [];
+    }
+    try {
+      const fileNames = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
+      return fileNames.map((fileName) => ({
+        params: {
+          slug: fileName.replace(/\.md$/, ""),
+        },
+      }));
+    } catch (error) {
+      console.error(`Error reading directory ${dir} for slugs:`, error);
+      return [];
+    }
   });
+  return paths;
 }
 
-export async function getPostBySlug(slug: string) {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const matterResult = matter(fileContents);
+export async function getPostBySlug(slug: string): Promise<
+  PostData & {
+    contentHtml: string;
+  }
+> {
+  const postDirectories = getPostDirectories();
+  let fullPath: string | undefined;
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
+  for (const dir of postDirectories) {
+    const potentialPath = path.join(dir, `${slug}.md`); // .mdを探す
+    if (fs.existsSync(potentialPath)) {
+      fullPath = potentialPath;
+      break;
+    }
+  }
+
+  if (!fullPath) {
+    // 見つからなかった場合のエラーをより具体的に
+    throw new Error(
+      `Post not found for slug: ${slug} in directories: ${postDirectories.join(
+        ", "
+      )}`
+    );
+  }
+
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { data, content } = matter(fileContents); // matterResult を分割代入
+
+  // MarkdownをHTMLに変換
+  const processedContent = await remark().use(html).process(content);
   const contentHtml = processedContent.toString();
 
   return {
-    slug,
+    ...(data as PostData), // スプレッドを先に
+    slug, // スラッグで上書き
     contentHtml,
-    ...(matterResult.data as { title: string; date: string }),
   };
 }
