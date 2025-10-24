@@ -1,8 +1,14 @@
 [
   {
+    "date": "2025-10-24",
+    "title": "ITブログサイト「ともきちのエンジニア成長記」を開設しました。",
+    "url": "https://it.tomokichidiary.com/",
+    "tags": ["お知らせ", "プレスリリース"]
+  },
+  {
     "date": "2025-10-21",
     "title": "オフィシャルウェブサイトを開設しました。",
-    "url": "https://tomokichi.netlify.app/",
-    "tags": ["お知らせ"]
+    "url": "https://www.tomokichidiary.com/",
+    "tags": ["お知らせ", "プレスリリース"]
   }
 ]

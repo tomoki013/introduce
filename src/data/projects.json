@@ -19,7 +19,36 @@
         "SEOを意識した構造化データとメタタグの最適化"
       ],
       "links": {
-        "url": "https://www.tomokichidiary.com/",
+        "url": "https://travel.tomokichidiary.com/",
+        "github": "https://github.com/tomoki013/new-travelblog/"
+      },
+      "images": [
+        "/images/projects/travel-diary.jpg",
+        "/images/projects/travel-diary.jpg"
+      ]
+    }
+  },
+  {
+    "slug": "tomokichi-it-diary",
+    "title": "ともきちのエンジニア成長記",
+    "isFeatured": true,
+    "thumbnail": "/images/projects/travel-diary.jpg",
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
+    "summary": "ともきちが日々学習していく中で思ったことや得た知識を共有していくブログです。ひよっこエンジニアの成長過程をともに見守っていただけると幸いです。",
+    "details": {
+      "overview": "Next.jsを活用した、エンジニア学習ブログです。技術的な内容から学習の進め方まで、幅広く発信しています。",
+      "background": "エンジニアとしての成長過程を記録し、同じように学習中の人々と知識や経験を共有したいと考え、ブログサイトの開発を決意しました。",
+      "challenge": "学習内容を分かりやすく整理し、他のエンジニアにも役立つ情報を提供するにはどうすれば良いか。",
+      "solution": "Next.jsの柔軟なルーティングとMDX対応を活用し、技術記事の執筆と管理を効率化。Tailwind CSSでスタイリッシュかつ読みやすいデザインを実現した。",
+      "outcome": "",
+      "techStack": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "features": [
+        "MDX対応による技術記事の効率的な執筆と管理",
+        "レスポンシブデザインでの快適な閲覧体験",
+        "カテゴリー別の整理とタグ付けによる情報の見つけやすさ向上"
+      ],
+      "links": {
+        "url": "https://it.tomokichidiary.com/",
         "github": "https://github.com/tomoki013/new-travelblog/"
       },
       "images": [
@@ -60,7 +89,7 @@
   {
     "slug": "money-master",
     "title": "マネーマスター",
-    "isFeatured": true,
+    "isFeatured": false,
     "thumbnail": "/images/projects/money-master.jpg",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
     "summary": "",
