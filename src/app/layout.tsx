@@ -5,6 +5,7 @@ import Footer from "@/components/common/Footer";
 import ScrollProgress from "@/components/common/ScrollProgress";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Metadata } from "next";
+import CookieConsentBanner from "@/components/features/cookie/CookieConsentBanner";
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
@@ -69,6 +70,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1 text-sm md:text-base">{children}</main>
           <Footer />
+          <CookieConsentBanner />
         </ThemeProvider>
       </body>
     </html>
