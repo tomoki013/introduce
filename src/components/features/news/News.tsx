@@ -11,7 +11,7 @@ type Props = {
   limit?: number;
 };
 
-export const News = ({ news = newsData, limit = 5 }: Props) => {
+export const News = ({ news = newsData as NewsItem[], limit = 5 }: Props) => {
   return (
     <ul className="space-y-4">
       {news.slice(0, limit).map((item, index) => (
