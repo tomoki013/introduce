@@ -5,6 +5,7 @@ import { Section } from "@/components/common/Section";
 import { MotionDiv } from "@/components/common/Motion";
 import { FaBookOpen, FaFolderOpen, FaFile } from "react-icons/fa";
 import { PostData } from "@/lib/blog";
+import { Variants } from "framer-motion";
 
 interface Project {
   slug: string;
@@ -34,7 +35,7 @@ export function SitemapClientPage({
   posts,
   projects,
 }: SitemapClientPageProps) {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -44,7 +45,7 @@ export function SitemapClientPage({
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
