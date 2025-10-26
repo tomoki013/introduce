@@ -10,6 +10,7 @@ export type PostData = {
   slug: string;
   title: string;
   date: string;
+  excerpt: string;
 };
 
 /**
@@ -74,9 +75,11 @@ export function getAllPosts(): PostData[] {
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const matterResult = matter(fileContents);
 
+        const excerpt = matterResult.content.slice(0, 120);
         allPostsData.push({
           slug,
           ...(matterResult.data as { title: string; date: string }),
+          excerpt,
         });
       });
   }
