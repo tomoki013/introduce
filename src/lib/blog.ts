@@ -136,7 +136,7 @@ export async function getAllPostSlugs() {
 export async function getPostBySlug(slug: string) {
   const subDirs = getPostSubdirectories();
   let fullPath: string | null = null;
-  let fileExtension: ".md" | ".mdx" | null = null;
+  // let fileExtension: ".md" | ".mdx" | null = null;
 
   // すべてのサブディレクトリを検索
   for (const dir of subDirs) {
