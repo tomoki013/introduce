@@ -2,7 +2,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "@/components/ui/ThemeToggle";
-import { MotionHeader, MotionDiv, MotionA } from "@/components/common/Motion";
+import {
+  MotionHeader,
+  MotionDiv,
+  MotionLink,
+} from "@/components/common/Motion";
 import { FiMenu, FiX, FiGithub } from "react-icons/fi";
 import { AnimatePresence } from "framer-motion";
 
@@ -40,7 +44,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-4 md:flex">
-          <MotionA
+          <MotionLink
             href="/about"
             className="glitch transition-colors hover:text-primary"
             data-text="About"
@@ -48,8 +52,8 @@ export default function Header() {
             whileHover="hover"
           >
             About
-          </MotionA>
-          <MotionA
+          </MotionLink>
+          <MotionLink
             href="/projects"
             className="glitch transition-colors hover:text-primary"
             data-text="Projects"
@@ -57,8 +61,8 @@ export default function Header() {
             whileHover="hover"
           >
             Projects
-          </MotionA>
-          <MotionA
+          </MotionLink>
+          <MotionLink
             href="/blog"
             className="glitch transition-colors hover:text-primary"
             data-text="Skills"
@@ -66,8 +70,8 @@ export default function Header() {
             whileHover="hover"
           >
             Blog
-          </MotionA>
-          <MotionA
+          </MotionLink>
+          <MotionLink
             href="/contact"
             className="glitch transition-colors hover:text-primary"
             data-text="Contact"
@@ -75,7 +79,7 @@ export default function Header() {
             whileHover="hover"
           >
             Contact
-          </MotionA>
+          </MotionLink>
         </div>
 
         <div className="flex items-center gap-4">
@@ -110,7 +114,7 @@ export default function Header() {
             variants={mobileMenuVariants}
           >
             <nav className="flex flex-col items-center gap-4">
-              <MotionA
+              <MotionLink
                 href="/about"
                 className="glitch transition-colors hover:text-primary"
                 data-text="About"
@@ -118,8 +122,8 @@ export default function Header() {
                 whileHover="hover"
               >
                 About
-              </MotionA>
-              <MotionA
+              </MotionLink>
+              <MotionLink
                 href="/projects"
                 className="glitch transition-colors hover:text-primary"
                 data-text="Projects"
@@ -127,8 +131,8 @@ export default function Header() {
                 whileHover="hover"
               >
                 Projects
-              </MotionA>
-              <MotionA
+              </MotionLink>
+              <MotionLink
                 href="/blog"
                 className="glitch transition-colors hover:text-primary"
                 data-text="Skills"
@@ -136,8 +140,8 @@ export default function Header() {
                 whileHover="hover"
               >
                 Blog
-              </MotionA>
-              <MotionA
+              </MotionLink>
+              <MotionLink
                 href="/contact"
                 className="glitch transition-colors hover:text-primary"
                 data-text="Contact"
@@ -145,7 +149,7 @@ export default function Header() {
                 whileHover="hover"
               >
                 Contact
-              </MotionA>
+              </MotionLink>
               <a
                 href="https://github.com/tomoki013/introduce"
                 target="_blank"
