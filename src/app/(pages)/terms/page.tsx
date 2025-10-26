@@ -37,7 +37,17 @@ export default function TermsPage() {
           本ウェブサイトのコンテンツ・情報について、可能な限り正確な情報を掲載するよう努めておりますが、正確性や安全性を保証するものではありません。当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。
         </p>
 
-        <h2 className="text-2xl font-bold mt-8">第4条（本規約の変更）</h2>
+        <h2 className="text-2xl font-bold mt-8">第4条（クッキーの使用）</h2>
+        <p>
+          本ウェブサイトでは、一部のコンテンツにおいてクッキーを使用しています。クッキーの使用に関する詳細は、別途定める<a
+            href="/privacy#cookie-policy"
+            className="text-accent hover:underline"
+          >
+            プライバシーポリシー
+          </a>をご参照ください。
+        </p>
+
+        <h2 className="text-2xl font-bold mt-8">第5条（本規約の変更）</h2>
         <p>
           本ウェブサイトは、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。
         </p>
