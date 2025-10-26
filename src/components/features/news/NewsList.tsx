@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { News, NewsItem } from "@/components/features/news/News";
+import { News } from "@/components/features/news/News";
+import { NewsItem, NewsTag } from "@/lib/news";
 
 type Props = {
   news: NewsItem[];
-  tags: string[];
+  tags: readonly NewsTag[];
 };
 
 export const NewsList = ({ news, tags }: Props) => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = useState<NewsTag | null>(null);
   const filteredNews = selectedTag
     ? news.filter((item) => item.tags.includes(selectedTag))
     : news;
