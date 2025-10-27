@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import {
@@ -12,6 +12,20 @@ import { AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
 
   const navLinkVariants = {
     hover: {
@@ -107,6 +121,7 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <MotionDiv
+            ref={menuRef}
             className="absolute left-0 w-full bg-card p-4 md:hidden"
             initial="hidden"
             animate="visible"
@@ -120,6 +135,7 @@ export default function Header() {
                 data-text="About"
                 variants={navLinkVariants}
                 whileHover="hover"
+                onClick={() => setIsMenuOpen(false)}
               >
                 About
               </MotionLink>
@@ -129,6 +145,7 @@ export default function Header() {
                 data-text="Projects"
                 variants={navLinkVariants}
                 whileHover="hover"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Projects
               </MotionLink>
@@ -138,6 +155,7 @@ export default function Header() {
                 data-text="Skills"
                 variants={navLinkVariants}
                 whileHover="hover"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </MotionLink>
@@ -147,6 +165,7 @@ export default function Header() {
                 data-text="Contact"
                 variants={navLinkVariants}
                 whileHover="hover"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </MotionLink>
@@ -155,6 +174,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-2xl transition-colors hover:text-primary"
+                onClick={() => setIsMenuOpen(false)}
               >
                 <FiGithub />
               </a>
