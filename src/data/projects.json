@@ -32,7 +32,7 @@
     "slug": "tomokichi-it-diary",
     "title": "ともきちのエンジニア成長記",
     "isFeatured": true,
-    "thumbnail": "/images/projects/travel-diary.jpg",
+    "thumbnail": "/images/projects/it-diary.jpg",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
     "summary": "ともきちが日々学習していく中で思ったことや得た知識を共有していくブログです。ひよっこエンジニアの成長過程をともに見守っていただけると幸いです。",
     "details": {
@@ -49,11 +49,11 @@
       ],
       "links": {
         "url": "https://it.tomokichidiary.com/",
-        "github": "https://github.com/tomoki013/new-travelblog/"
+        "github": "https://github.com/tomoki013/new-it-blog/"
       },
       "images": [
-        "/images/projects/travel-diary.jpg",
-        "/images/projects/travel-diary.jpg"
+        "/images/projects/it-diary.jpg",
+        "/images/projects/it-diary.jpg"
       ]
     }
   },
