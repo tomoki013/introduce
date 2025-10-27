@@ -11,6 +11,21 @@ type Props = {
   item: NewsItem;
 };
 
+const getLinkText = (url: string) => {
+  try {
+    const hostname = new URL(url).hostname;
+    if (hostname.includes("it.tomokichidiary.com")) {
+      return `「ともきちのエンジニア成長記」で続きを読む`;
+    }
+    if (hostname.includes("qiita.com")) {
+      return `Qiitaで続きを読む`;
+    }
+    return `${hostname.replace(/^www\./, "")}で続きを読む`;
+  } catch (error) {
+    return "続きを読む";
+  }
+};
+
 export default function NewsContent({ item }: Props) {
   return (
     <>
@@ -55,7 +70,7 @@ export default function NewsContent({ item }: Props) {
             className="prose prose-lg mx-auto max-w-none dark:prose-invert"
             dangerouslySetInnerHTML={{ __html: item.content }}
           />
-          {item.link && (
+          {item.link && item.link !== "/" && (
             <p className="mt-8 text-center">
               <Link
                 href={item.link}
@@ -63,7 +78,7 @@ export default function NewsContent({ item }: Props) {
                 rel="noopener noreferrer"
                 className="text-accent hover:underline"
               >
-                続きを読む
+                {getLinkText(item.link)}
               </Link>
             </p>
           )}
