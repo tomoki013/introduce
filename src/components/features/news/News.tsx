@@ -17,7 +17,7 @@ export const News = ({ news = newsData as NewsItem[], limit = 5 }: Props) => {
       {news.slice(0, limit).map((item, index) => (
         <li key={index} className="border-b border-border pb-2">
           <Link
-            href={item.link || `/news/${item.id}`}
+            href={`/news/${item.id}`}
             className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 group"
           >
             <time dateTime={item.date} className="text-sm whitespace-nowrap">
