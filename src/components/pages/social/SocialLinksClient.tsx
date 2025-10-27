@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FaGithub, FaPenSquare } from "react-icons/fa";
+import { SiQiita, SiZenn } from "react-icons/si";
 import { MotionDiv } from "@/components/common/Motion";
 
 const socialLinks = [
@@ -16,6 +17,18 @@ const socialLinks = [
     url: "https://note.com/tomokichidiary",
     description: "日々の考えや学びを記録しています。",
     icon: <FaPenSquare className="h-12 w-12" />,
+  },
+  {
+    name: "Qiita",
+    url: "https://qiita.com/tomoki013",
+    description: "",
+    icon: <SiQiita className="h-12 w-12" />,
+  },
+  {
+    name: "Zenn",
+    url: "https://zenn.dev/tomoki013",
+    description: "",
+    icon: <SiZenn className="h-12 w-12" />,
   },
 ];
 
