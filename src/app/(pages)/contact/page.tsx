@@ -72,7 +72,7 @@ export default function ContactPage() {
               <FiGithub />
             </a>
             <a
-              href="https://qiita.com/Tomokichi_M"
+              href="https://qiita.com/tomoki013"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Qiita"
@@ -81,7 +81,7 @@ export default function ContactPage() {
               <SiQiita />
             </a>
             <a
-              href="https://zenn.dev/tomokichi"
+              href="https://zenn.dev/tomoki013"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Zenn"

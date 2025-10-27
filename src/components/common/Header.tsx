@@ -84,7 +84,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <a
-            href="https://github.com/tomoki013/introduce"
+            href="https://github.com/tomoki013"
             target="_blank"
             rel="noopener noreferrer"
             className="text-2xl transition-colors hover:text-primary"
@@ -151,7 +151,7 @@ export default function Header() {
                 Contact
               </MotionLink>
               <a
-                href="https://github.com/tomoki013/introduce"
+                href="https://github.com/tomoki013"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-2xl transition-colors hover:text-primary"
