@@ -97,14 +97,6 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <Link
-                  href="/social"
-                  className="text-muted-foreground transition-colors hover:text-primary"
-                >
-                  ソーシャル
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="https://github.com/tomoki013/"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
