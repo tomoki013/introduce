@@ -107,7 +107,7 @@ export default function Header() {
       <AnimatePresence>
         {isMenuOpen && (
           <MotionDiv
-            className="absolute left-0 w-full bg-background p-4 md:hidden"
+            className="absolute left-0 w-full bg-card p-4 md:hidden"
             initial="hidden"
             animate="visible"
             exit="exit"
