@@ -4,26 +4,11 @@ import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import { MotionDiv, MotionH1 } from "@/components/common/Motion";
 import Link from "next/link";
-import { FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft, FiExternalLink } from "react-icons/fi";
 import { NewsItem } from "@/lib/news";
 
 type Props = {
   item: NewsItem;
-};
-
-const getLinkText = (url: string) => {
-  try {
-    const hostname = new URL(url).hostname;
-    if (hostname.includes("it.tomokichidiary.com")) {
-      return `「ともきちのエンジニア成長記」で続きを読む`;
-    }
-    if (hostname.includes("qiita.com")) {
-      return `Qiitaで続きを読む`;
-    }
-    return `${hostname.replace(/^www\./, "")}で続きを読む`;
-  } catch (error) {
-    return "続きを読む";
-  }
 };
 
 export default function NewsContent({ item }: Props) {
@@ -59,6 +44,18 @@ export default function NewsContent({ item }: Props) {
           >
             {item.title}
           </MotionH1>
+          {item.link && item.link !== "/" && (
+            <p className="mt-8 flex justify-center items-center">
+              <Link
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary transition-colors hover:text-primary/80"
+              >
+                <FiExternalLink /> サイトを見る
+              </Link>
+            </p>
+          )}
         </header>
 
         <MotionDiv
@@ -70,18 +67,6 @@ export default function NewsContent({ item }: Props) {
             className="prose prose-lg mx-auto max-w-none dark:prose-invert"
             dangerouslySetInnerHTML={{ __html: item.content }}
           />
-          {item.link && item.link !== "/" && (
-            <p className="mt-8 text-center">
-              <Link
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:underline"
-              >
-                {getLinkText(item.link)}
-              </Link>
-            </p>
-          )}
         </MotionDiv>
       </article>
 
