@@ -1,17 +1,12 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  turbopack: {
-    root: process.cwd(),
-  },
-};
-
-export default nextConfig;
-
 const withPWA = require("next-pwa")({
   dest: "public",
+  // 必要であれば、他のPWA設定をここに追加
 });
 
-module.exports = withPWA({
-  // next.js config
-});
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // reactStrictMode: true,
+  // PWA以外のNext.js設定はここに書きます
+};
+
+module.exports = withPWA(nextConfig);
