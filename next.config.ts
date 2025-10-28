@@ -1,12 +1,18 @@
-const withPWA = require("next-pwa")({
-  dest: "public",
-  // 必要であれば、他のPWA設定をここに追加
-});
+import type { NextConfig } from "next";
+import withSerwist from "@serwist/next";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // reactStrictMode: true,
-  // PWA以外のNext.js設定はここに書きます
+const nextConfig: NextConfig = {
+  /* config options here */
+  images: {
+    loader: "custom",
+    loaderFile: "./netlify-loader.ts",
+  },
 };
 
-module.exports = withPWA(nextConfig);
+export default withSerwist({
+  // Serwist の設定
+  swSrc: "src/app/sw.ts", // サービスワーカーのソースファイル
+  swDest: "public/sw.js", // 出力されるサービスワーカーファイル
+  disable: process.env.NODE_ENV === "development", // 開発環境では無効にする
+  // ...その他の設定はここに記述
+})(nextConfig);
