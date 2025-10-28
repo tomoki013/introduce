@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/lib/blog";
 import projectsData from "@/data/projects.json";
-import { SitemapClientPage } from "./SitemapClientPage";
+import { SitemapClientPage } from "./Client";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

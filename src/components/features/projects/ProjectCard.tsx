@@ -71,7 +71,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               src={project.thumbnail || "favicon.ico"}
               alt={project.title}
               fill
-              objectFit="cover"
+              style={{ objectFit: "cover" }}
             />
           </MotionDiv>
           <div className="p-4">

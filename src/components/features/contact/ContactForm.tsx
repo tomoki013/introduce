@@ -114,6 +114,10 @@ export default function ContactForm() {
           <Link href="/terms" className="underline hover:text-primary">
             利用規約
           </Link>
+          と
+          <Link href="/privacy" className="underline hover:text-primary">
+            プライバシーポリシー
+          </Link>
           に同意します。
         </label>
       </div>
