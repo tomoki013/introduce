@@ -11,7 +11,9 @@ const CookieConsentBanner = () => {
 
   useEffect(() => {
     // Check if consent has been given or if the banner was dismissed
-    const consentGiven = document.cookie.includes("tomokichi-cookie-consent=true");
+    const consentGiven = document.cookie.includes(
+      "tomokichi-cookie-consent=true"
+    );
     const consentDismissed = sessionStorage.getItem("cookie-consent-dismissed");
 
     if (!consentGiven && !consentDismissed) {
@@ -52,7 +54,7 @@ const CookieConsentBanner = () => {
               position: "relative",
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-between",
+              justifyContent: "center",
               padding: "16px",
             }}
             buttonStyle={{
@@ -61,6 +63,7 @@ const CookieConsentBanner = () => {
               fontSize: "13px",
               borderRadius: "4px",
               padding: "8px 16px",
+              marginRight: "24px",
               cursor: "pointer",
             }}
             expires={150}
@@ -77,9 +80,9 @@ const CookieConsentBanner = () => {
               onClick={handleDecline}
               style={{
                 position: "absolute",
-                top: "50%",
+                top: "8px",
                 right: "16px",
-                transform: "translateY(-50%)",
+                // transform: "translateY(-50%)",
                 background: "none",
                 border: "none",
                 color: "var(--foreground)",
