@@ -4,6 +4,7 @@ import { SiQiita, SiZenn } from "react-icons/si";
 
 import { MotionDiv } from "@/components/common/Motion";
 import ContactForm from "@/components/features/contact/ContactForm";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -62,7 +63,7 @@ export default function ContactPage() {
         <section className="mt-12 text-center">
           <h2 className="mb-4 text-xl font-bold text-foreground">SNS</h2>
           <div className="flex justify-center gap-6">
-            <a
+            <Link
               href="https://github.com/tomoki013"
               target="_blank"
               rel="noopener noreferrer"
@@ -70,8 +71,8 @@ export default function ContactPage() {
               className="text-3xl text-muted-foreground transition-colors hover:text-primary"
             >
               <FiGithub />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://qiita.com/tomoki013"
               target="_blank"
               rel="noopener noreferrer"
@@ -79,8 +80,8 @@ export default function ContactPage() {
               className="text-3xl text-muted-foreground transition-colors hover:text-primary"
             >
               <SiQiita />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://zenn.dev/tomoki013"
               target="_blank"
               rel="noopener noreferrer"
@@ -88,7 +89,7 @@ export default function ContactPage() {
               className="text-3xl text-muted-foreground transition-colors hover:text-primary"
             >
               <SiZenn />
-            </a>
+            </Link>
           </div>
         </section>
       </MotionDiv>
