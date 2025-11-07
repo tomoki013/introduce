@@ -10,10 +10,12 @@ import { FaRegNewspaper } from "react-icons/fa";
 import { MotionDiv, MotionH2 } from "@/components/common/Motion";
 import { Section } from "@/components/common/Section";
 import Link from "next/link";
+import { getAllNews } from "@/app/(pages)/news/lib";
 
 export default function Home() {
   const featuredProjects = projects.filter((project) => project.isFeatured);
   const latestPosts = getAllPosts().slice(0, 3);
+  const news = getAllNews();
 
   return (
     <div className="space-y-24 md:space-y-32">
@@ -29,7 +31,10 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-4 space-y-4"
         >
-          <News limit={5} />
+          <News
+            news={news}
+            limit={5}
+          />
           <div className="text-center">
             <Link
               href="/news"

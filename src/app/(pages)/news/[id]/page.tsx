@@ -1,23 +1,23 @@
 import { notFound } from "next/navigation";
-import news from "@/data/news.json";
-import { NewsItem } from "@/lib/news";
 import { Metadata } from "next";
 import { Section } from "@/components/common/Section";
 import NewsContent from "@/components/features/news/NewsContent";
+import { getAllNews, getNewsById } from "@/app/(pages)/news/lib";
 
 export async function generateStaticParams() {
+  const news = getAllNews();
   return news.map((item) => ({
     id: item.id,
   }));
 }
 
 type Props = {
-  params: Promise<{ id:string }>;
+  params: Promise<{ id: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const item = news.find((item) => item.id === id) as NewsItem | undefined;
+  const item = await getNewsById(id);
   if (!item) {
     return {
       title: "News Not Found",
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsDetailPage({ params }: Props) {
   const { id } = await params;
-  const item = news.find((item) => item.id === id) as NewsItem | undefined;
+  const item = await getNewsById(id);
 
   if (!item) {
     notFound();
