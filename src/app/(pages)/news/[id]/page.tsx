@@ -5,7 +5,7 @@ import NewsContent from "@/components/features/news/NewsContent";
 import { getAllNews, getNewsById } from "@/app/(pages)/news/lib";
 
 export async function generateStaticParams() {
-  const news = getAllNews();
+  const news = await getAllNews();
   return news.map((item) => ({
     id: item.id,
   }));

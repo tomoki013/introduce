@@ -25,7 +25,7 @@ function getNewsSubdirectories(): string[] {
   return [];
 }
 
-export function getAllNews(): NewsItem[] {
+export async function getAllNews(): Promise<NewsItem[]> {
   const subDirs = getNewsSubdirectories();
   const allNewsData: NewsItem[] = [];
 
@@ -38,27 +38,30 @@ export function getAllNews(): NewsItem[] {
 
     const fileNames = fs.readdirSync(dirPath);
 
-    fileNames
-      .filter(
-        (fileName) => fileName.endsWith(".md") || fileName.endsWith(".mdx"),
-      )
-      .forEach((fileName) => {
-        const id = fileName.replace(/\.(md|mdx)$/, "");
-        const fullPath = path.join(dirPath, fileName);
-        const fileContents = fs.readFileSync(fullPath, "utf8");
-        const matterResult = matter(fileContents);
+    for (const fileName of fileNames.filter(
+      (name) => name.endsWith(".md") || name.endsWith(".mdx"),
+    )) {
+      const id = fileName.replace(/\.(md|mdx)$/, "");
+      const fullPath = path.join(dirPath, fileName);
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const matterResult = matter(fileContents);
 
-        allNewsData.push({
-          id,
-          ...(matterResult.data as {
-            date: string;
-            title: string;
-            link?: string;
-            tags: NewsTag[];
-          }),
-          content: matterResult.content,
-        });
+      const processedContent = await remark()
+        .use(html)
+        .process(matterResult.content);
+      const contentHtml = processedContent.toString();
+
+      allNewsData.push({
+        id,
+        ...(matterResult.data as {
+          date: string;
+          title: string;
+          link?: string;
+          tags: NewsTag[];
+        }),
+        content: contentHtml,
       });
+    }
   }
 
   return allNewsData.sort((a, b) => {

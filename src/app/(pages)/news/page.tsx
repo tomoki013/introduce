@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: "All the latest news.",
 };
 
-export default function NewsPage() {
-  const news = getAllNews();
+export default async function NewsPage() {
+  const news = await getAllNews();
 
   return (
     <div className="m-16">

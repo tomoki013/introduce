@@ -12,10 +12,10 @@ import { Section } from "@/components/common/Section";
 import Link from "next/link";
 import { getAllNews } from "@/app/(pages)/news/lib";
 
-export default function Home() {
+export default async function Home() {
   const featuredProjects = projects.filter((project) => project.isFeatured);
   const latestPosts = getAllPosts().slice(0, 3);
-  const news = getAllNews();
+  const news = await getAllNews();
 
   return (
     <div className="space-y-24 md:space-y-32">
