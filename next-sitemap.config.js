@@ -15,7 +15,7 @@ const getMarkdownFiles = (dir) => {
     const fullPath = path.join(dir, item.name);
     if (item.isDirectory()) {
       files = files.concat(getMarkdownFiles(fullPath));
-    } else if (item.isFile() && path.extname(item.name) === '.md') {
+    } else if (item.isFile() && (path.extname(item.name) === '.md' || path.extname(item.name) === '.mdx')) {
       files.push(fullPath);
     }
   }
@@ -38,8 +38,21 @@ module.exports = {
   },
   additionalPaths: async (config) => {
     // ニュース記事のパス
-    const newsData = JSON.parse(fs.readFileSync('src/data/news.json', 'utf8'));
-    const newsPaths = newsData.map(item => ({ loc: `/news/${item.id}` }));
+    const newsConfigPath = 'posts/news.config.json';
+    let newsPaths = [];
+    if (fs.existsSync(newsConfigPath)) {
+      const newsConfig = JSON.parse(fs.readFileSync(newsConfigPath, 'utf8'));
+      for (const dir of newsConfig.directories) {
+        const fullDir = path.join('posts', dir);
+        if (fs.existsSync(fullDir)) {
+          const newsFiles = fs.readdirSync(fullDir);
+          const paths = newsFiles
+            .filter(file => file.endsWith('.md') || file.endsWith('.mdx'))
+            .map(file => ({ loc: `/news/${file.replace(/\.(md|mdx)$/, '')}` }));
+          newsPaths = newsPaths.concat(paths);
+        }
+      }
+    }
 
     // プロジェクトページのパス
     const projectsData = JSON.parse(fs.readFileSync('src/data/projects.json', 'utf8'));

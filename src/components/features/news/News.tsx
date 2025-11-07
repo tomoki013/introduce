@@ -1,7 +1,6 @@
 "use client";
 
 import { NewsItem } from "@/lib/news";
-import newsData from "@/data/news.json";
 import { format } from "date-fns";
 import { ja } from "date-fns/locale";
 import Link from "next/link";
@@ -11,7 +10,7 @@ type Props = {
   limit?: number;
 };
 
-export const News = ({ news = newsData as NewsItem[], limit = 5 }: Props) => {
+export const News = ({ news = [], limit = 5 }: Props) => {
   return (
     <ul className="space-y-4">
       {news.slice(0, limit).map((item, index) => (
