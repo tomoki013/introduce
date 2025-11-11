@@ -45,6 +45,7 @@ next-env.d.ts
 
 # sitemap
 /public/sitemap*.xml
+/public/robots.txt
 
 # Service Worker
 /public/sw.js

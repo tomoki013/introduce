@@ -16,7 +16,7 @@ export default function Footer() {
                   href="/"
                   className="text-muted-foreground transition-colors hover:text-primary"
                 >
-                  トップ
+                  ホーム
                 </Link>
               </li>
               <li>
