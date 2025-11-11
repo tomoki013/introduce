@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/common/ScrollProgress";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Metadata } from "next";
 import CookieConsentBanner from "@/components/features/cookie/CookieConsentBanner";
+import Script from "next/script";
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
@@ -52,7 +53,8 @@ export const metadata: Metadata = {
       "Welcome to my portfolio! I'm Tomokichi, a passionate developer specializing in web and mobile applications. Explore my projects, skills, and experiences.",
     images: ["favicon.ico"],
   },
-  metadataBase: new URL("https://tomokichi.netlify.app"),
+  metadataBase: new URL("https://www.tomokichidiary.com"),
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -62,6 +64,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        {/* Google Search Console */}
+        <meta
+          name="google-site-verification"
+          content="qd9h_oeUkXKK0F-u4U5Z-c540MUq_Agst3K0rF8ERdM"
+        />
+
+        {/* Google Adsense */}
+        <meta name="google-adsense-account" content="ca-pub-8687520805381056" />
+
+        {/* 自動広告 */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687520805381056"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        ></Script>
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-XYSW6RY98H"
+        ></Script>
+
+        {/* Google Analytics */}
+        <Script id="google-analytics">
+          {`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+						gtag('config', 'G-XYSW6RY98H');
+					`}
+        </Script>
+      </head>
       <body
         className={`${shareTechMono.variable} ${notoSansJp.variable} bg-background text-foreground antialiased`}
       >
