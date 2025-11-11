@@ -7,7 +7,7 @@ import { getAllNews, getNewsById } from "@/app/(pages)/news/lib";
 export async function generateStaticParams() {
   const news = await getAllNews();
   return news.map((item) => ({
-    id: item.id,
+    id: String(item.id),
   }));
 }
 
