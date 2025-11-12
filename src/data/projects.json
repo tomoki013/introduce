@@ -58,9 +58,49 @@
     }
   },
   {
+    "slug": "geo-linker",
+    "title": "Geo Linker",
+    "isFeatured": true,
+    "thumbnail": "/images/projects/geo-linker.jpg",
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS", "d3.js", "Framer Motion"],
+    "summary": "d3.jsで描画されたインタラクティブな地球儀と、Framer Motionによる写真アニメーションを通じて、国から国へと陸路で旅する体験を提供するWebアプリケーション。",
+    "details": {
+      "overview": "Geo Linkerは、単なる地理クイズゲームではなく、「旅の体験」を重視したWebアプリケーションです。ユーザーはスタート国とゴール国を選択し、d3.jsで描画されたインタラクティブな地球儀上で、陸路で隣接する国をたどりながらゴールを目指します。各国の美しい写真がFramer Motionによって表示され、視覚的な楽しさも提供します。",
+      "background": "既存の「Geo Linker」というコンセプトを、モダンなWeb技術（Next.js App Router, React 19, Tailwind CSS v4）を用いてリッチなWebアプリケーションとして実現することを目的としました。",
+      "challenge": "主な課題は、d3.jsによるインタラクティブな地球儀の描画、Framer Motionを使った滑らかな写真アニメーション、陸路での到達可能性を判定するゲームロジック、これらすべてをNext.jsのApp Router上でパフォーマンス良く統合することでした。",
+      "solution": "ロジックを`useGameLogic`（ゲーム状態管理）と`useCountryData`（データ取得）というカスタムフックに厳密に分離しました。地図描画は`WorldMap.tsx`コンポーネントがd3.jsを用いて担当し、UIコンポーネント（`Button.tsx`, `CountryModal.tsx`）は`tailwind-variants`と`framer-motion`を活用して再利用性とデザイン性を高めました。写真はローカルと外部APIを組み合わせたハイブリッド方式で表示しています。",
+      "outcome": "ゲームのクリア後には、旅のルートをスライドショーで振り返ることができ、結果をSNS（X, LINE, Facebookなど）で共有する機能も実装しました。これにより、ユーザーはゲーム体験を他者と共有し、エンゲージメントを高めることができます。",
+      "techStack": [
+        "Next.js (App Router)",
+        "React (React 19, Server Actions)",
+        "TypeScript",
+        "Tailwind CSS (v4)",
+        "Framer Motion",
+        "d3.js"
+      ],
+      "features": [
+        "d3.jsによるインタラクティブな3D地球儀（回転、ズーム、ハイライト機能）",
+        "陸路でのみ移動可能な国境判定ロジック（大陸塊データ使用）",
+        "Framer Motionによる国画像のフェードアニメーション",
+        "ゲーム開始（ランダムまたは国指定）機能",
+        "ゲーム結果のルート表示とスライドショー",
+        "SNS（X, LINE, Facebook等）への結果共有機能",
+        "`tailwind-variants`を使用したコンポーネントベースのUI設計"
+      ],
+      "links": {
+        "url": "https://geo-linker.netlify.app/",
+        "github": "https://github.com/tomoki013/geo-linker/"
+      },
+      "images": [
+        "/images/projects/geo-linker.jpg",
+        "/images/projects/geo-linker.jpg"
+      ]
+    }
+  },
+  {
     "slug": "web-roulette",
     "title": "WEBでルーレット",
-    "isFeatured": true,
+    "isFeatured": false,
     "thumbnail": "/images/projects/web-roulette.jpg",
     "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     "summary": "日常のちょっとした意思決定を楽しくする、カスタマイズ可能なオンラインルーレット。Supabaseと連携し、ルーレットの保存・共有が可能です。",
