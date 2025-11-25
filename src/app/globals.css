@@ -56,47 +56,65 @@ body {
 }
 
 :root {
-  --background: hsl(210 20% 98%);
-  --foreground: hsl(220 20% 10%);
+  /* Sky & Ocean (Day) */
+  --background: hsl(200 60% 98%); /* Very light sky blue */
+  --foreground: hsl(215 40% 20%); /* Deep navy text */
+
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(220 20% 10%);
+  --card-foreground: hsl(215 40% 20%);
+
   --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(220 20% 10%);
-  --primary: hsl(315 100% 50%);
+  --popover-foreground: hsl(215 40% 20%);
+
+  --primary: hsl(200 90% 45%); /* Bright Sky Blue */
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(200 20% 90%);
-  --secondary-foreground: hsl(220 20% 10%);
-  --muted: hsl(200 20% 90%);
-  --muted-foreground: hsl(220 10% 45%);
-  --accent: hsl(180 100% 45%);
-  --accent-foreground: hsl(220 20% 10%);
+
+  --secondary: hsl(45 90% 60%); /* Warm Sun/Sand Yellow */
+  --secondary-foreground: hsl(30 40% 20%);
+
+  --muted: hsl(200 20% 92%);
+  --muted-foreground: hsl(215 20% 50%);
+
+  --accent: hsl(170 80% 40%); /* Tropical Teal */
+  --accent-foreground: hsl(0 0% 100%);
+
   --destructive: hsl(0 84.2% 60.2%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(200 20% 85%);
-  --input: hsl(200 20% 85%);
-  --ring: hsl(315 100% 50%);
+
+  --border: hsl(200 30% 85%);
+  --input: hsl(200 30% 85%);
+  --ring: hsl(200 90% 45%);
 }
 
 .dark {
-  --background: hsl(240 10% 4%);
-  --foreground: hsl(180 5% 80%);
-  --card: hsl(240 10% 8%);
-  --card-foreground: hsl(180 5% 80%);
-  --popover: hsl(240 10% 8%);
-  --popover-foreground: hsl(180 5% 80%);
-  --primary: hsl(315 100% 50%);
-  --primary-foreground: hsl(240 10% 4%);
-  --secondary: hsl(260 30% 20%);
-  --secondary-foreground: hsl(180 5% 80%);
-  --muted: hsl(260 30% 20%);
-  --muted-foreground: hsl(180 5% 60%);
-  --accent: hsl(180 100% 50%);
-  --accent-foreground: hsl(240 10% 4%);
-  --destructive: hsl(0 70% 55%);
+  /* Night Sky & City Lights */
+  --background: hsl(220 50% 10%); /* Deep Night Blue */
+  --foreground: hsl(200 20% 90%);
+
+  --card: hsl(220 40% 13%);
+  --card-foreground: hsl(200 20% 90%);
+
+  --popover: hsl(220 40% 13%);
+  --popover-foreground: hsl(200 20% 90%);
+
+  --primary: hsl(200 80% 60%); /* Lighter Sky Blue for dark mode */
+  --primary-foreground: hsl(220 50% 10%);
+
+  --secondary: hsl(45 90% 60%); /* Warm Yellow lights */
+  --secondary-foreground: hsl(30 40% 20%);
+
+  --muted: hsl(220 30% 20%);
+  --muted-foreground: hsl(215 20% 65%);
+
+  --accent: hsl(170 80% 50%); /* Bright Teal */
+  --accent-foreground: hsl(220 50% 10%);
+
+  --destructive: hsl(0 62.8% 30.6%);
   --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(240 10% 15%);
-  --input: hsl(240 10% 15%);
-  --ring: hsl(315 100% 50%);
+
+  --border: hsl(220 30% 20%);
+  --input: hsl(220 30% 20%);
+  --ring: hsl(200 80% 60%);
 }
 
 /* Glitch Effect */

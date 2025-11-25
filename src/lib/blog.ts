@@ -11,6 +11,8 @@ export type PostData = {
   title: string;
   date: string;
   excerpt: string;
+  coverImage?: string;
+  category?: string;
 };
 
 /**
@@ -78,7 +80,12 @@ export function getAllPosts(): PostData[] {
         const excerpt = matterResult.content.slice(0, 120);
         allPostsData.push({
           slug,
-          ...(matterResult.data as { title: string; date: string }),
+          ...(matterResult.data as {
+            title: string;
+            date: string;
+            coverImage?: string;
+            category?: string;
+          }),
           excerpt,
         });
       });
@@ -169,10 +176,17 @@ export async function getPostBySlug(slug: string) {
     .use(html)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
+  const excerpt = matterResult.content.slice(0, 120);
 
   return {
     slug,
     contentHtml,
-    ...(matterResult.data as { title: string; date: string }),
+    excerpt,
+    ...(matterResult.data as {
+      title: string;
+      date: string;
+      coverImage?: string;
+      category?: string;
+    }),
   };
 }

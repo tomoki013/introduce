@@ -1,12 +1,14 @@
-import { Noto_Sans_JP, Share_Tech_Mono } from "next/font/google";
+import { Noto_Sans_JP, Montserrat } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/common/Header";
-import Footer from "@/components/common/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Background from "@/components/layout/Background";
 import ScrollProgress from "@/components/common/ScrollProgress";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
 import { Metadata } from "next";
 import CookieConsentBanner from "@/components/features/cookie/CookieConsentBanner";
 import Script from "next/script";
+import TimeBasedTheme from "@/components/features/theme/TimeBasedTheme";
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ["latin"],
@@ -15,10 +17,10 @@ const notoSansJp = Noto_Sans_JP({
   display: "swap",
 });
 
-const shareTechMono = Share_Tech_Mono({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-share-tech-mono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -99,12 +101,14 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${shareTechMono.variable} ${notoSansJp.variable} bg-background text-foreground antialiased`}
+        className={`${montserrat.variable} ${notoSansJp.variable} bg-background text-foreground antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <TimeBasedTheme />
+          <Background />
           <ScrollProgress />
           <Header />
-          <main className="flex-1 text-sm md:text-base">{children}</main>
+          <main className="flex-1 text-sm md:text-base pt-20">{children}</main>
           <Footer />
           <CookieConsentBanner />
         </ThemeProvider>

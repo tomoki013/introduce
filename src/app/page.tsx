@@ -1,54 +1,24 @@
 import projects from "@/data/projects.json";
 import { getAllPosts } from "@/lib/blog";
+import { getAllNews } from "@/lib/news";
 import Hero from "@/components/features/home/Hero";
-import { News } from "@/components/features/news/News";
-import AboutMe from "@/components/features/home/AboutMe";
-import FeaturedProjects from "@/components/features/home/FeaturedProjects";
-import LatestPosts from "@/components/features/blog/LatestPosts";
-import Skills from "@/components/features/home/Skills";
-import { FaRegNewspaper } from "react-icons/fa";
-import { MotionDiv, MotionH2 } from "@/components/common/Motion";
-import { Section } from "@/components/common/Section";
-import Link from "next/link";
-import { getAllNews } from "@/app/(pages)/news/lib";
+import NewsSection from "@/components/features/home/NewsSection";
+import ProjectsSection from "@/components/features/home/ProjectsSection";
+import SkillsSection from "@/components/features/home/SkillsSection";
+import ContactSection from "@/components/features/contact/ContactSection";
 
 export default async function Home() {
   const featuredProjects = projects.filter((project) => project.isFeatured);
-  const latestPosts = getAllPosts().slice(0, 3);
+  // const latestPosts = getAllPosts().slice(0, 3); // Keeping this if needed later, but for now replacing with Travel components
   const news = await getAllNews();
 
   return (
-    <div className="space-y-24 md:space-y-32">
+    <div className="space-y-0">
       <Hero />
-      <Section>
-        <div className="flex items-center gap-2">
-          <FaRegNewspaper className="text-xl" />
-          <MotionH2>News</MotionH2>
-        </div>
-        <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-4 space-y-4"
-        >
-          <News
-            news={news}
-            limit={5}
-          />
-          <div className="text-center">
-            <Link
-              href="/news"
-              className="inline-block font-semibold text-primary transition-colors hover:text-primary/80"
-            >
-              View All →
-            </Link>
-          </div>
-        </MotionDiv>
-      </Section>
-      <AboutMe />
-      <FeaturedProjects projects={featuredProjects} />
-      <LatestPosts posts={latestPosts} />
-      <Skills />
+      <NewsSection news={news} />
+      <ProjectsSection projects={featuredProjects} />
+      <SkillsSection />
+      <ContactSection />
     </div>
   );
 }
