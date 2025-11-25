@@ -82,13 +82,16 @@ export default function TravelContact() {
                 </div>
                 <div className="border-b border-slate-300 dark:border-slate-600 pb-1">
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4" /> Tokyo, Japan
+                    <MapPin className="w-4 h-4" /> Kyoto, Japan
                   </div>
                 </div>
                 <div className="border-b border-slate-300 dark:border-slate-600 pb-1">
                   <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4" /> tomoki@example.com
+                    <Mail className="w-4 h-4" /> gaomuyuoxi81[at]gmail.com
                   </div>
+                  <p className="text-xs text-slate-400 text-right">
+                    [at]を@に変換してください。
+                  </p>
                 </div>
               </div>
 

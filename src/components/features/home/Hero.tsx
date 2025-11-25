@@ -46,7 +46,7 @@ export default function TravelHero() {
                     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">
                       From
                     </p>
-                    <div className="text-2xl font-bold font-mono">TOKYO</div>
+                    <div className="text-2xl font-bold font-mono">KYOTO</div>
                     <div className="text-sm text-muted-foreground">Japan</div>
                   </div>
                   <div>
