@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Journey from "@/components/features/journey/Journey";
+import JourneySection from "@/components/features/about/JourneySection";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Traveler Profile | About",
   description:
     "Tomokichiの自己紹介ページ。技術への探求心と旅の経験を活かしたエンジニアとしてのビジョンを紹介します。",
 };
@@ -98,64 +99,85 @@ const TravelJourneys = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-4xl p-4">
-      {/* ページヘッダー */}
-      <section className="mb-12 flex flex-col items-center text-center">
-        <Image
-          src="/images/introduce.jpg"
-          alt="Tomokichi"
-          width={120}
-          height={120}
-          className="rounded-full"
-        />
-        <h1 className="mt-6 text-4xl font-bold text-foreground">Tomokichi</h1>
-        <p className="mt-2 text-lg text-primary">
-          新しい世界への探究心を、技術で形にする。
-        </p>
-      </section>
+    <div className="min-h-screen py-24 px-4 md:px-8">
+      <div className="mx-auto max-w-5xl">
+        {/* Passport Header */}
+        <section className="mb-16 relative bg-white dark:bg-slate-800 rounded-2xl p-8 md:p-12 shadow-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+          <div className="absolute top-0 left-0 w-full h-2 bg-linear-to-r from-primary via-secondary to-accent" />
 
-      {/* 自己紹介文 */}
-      <section className="prose prose-lg max-w-none dark:prose-invert prose-p:leading-relaxed prose-a:text-primary">
-        <p className="text-lg">
-          Next.jsとTypeScriptを軸に、再利用性の高いコンポーネント設計と、誰もがストレスなく使えるUI/UXの実現に情熱を注いでいます。汎用的なコンポーネントが様々な場所で機能する瞬間に、開発者として大きな喜びを感じます。
-        </p>
-        <p className="text-lg">
-          この技術への探求心は、自身の「旅」の経験と深く結びついています。世界を旅する中で感じた感動やリアルな体験を共有し、他の人の役に立ちたいという思いからブログ『ともきちの旅行日記』を運営。そして現在は、旅先で感じる「あったらいいな」という不便を、自らの手で解決するツールの開発に力を入れています。
-        </p>
-        <p className="text-lg">
-          将来的には、AI技術を駆使してWebからモバイルまで迅速に開発できるエンジニアを目指しています。旅のコミュニティや、旅行体験そのものをより豊かにするサービスを通じて、技術で新しい世界への扉を開く手助けをしたいと考えています。
-        </p>
-      </section>
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="relative w-32 h-32 md:w-48 md:h-48 shrink-0">
+              <div className="absolute inset-0 rounded-full border-4 border-primary/20 animate-pulse" />
+              <Image
+                src="/images/introduce.jpg"
+                alt="Tomokichi"
+                fill
+                className="rounded-full object-cover border-4 border-white dark:border-slate-800 shadow-lg"
+              />
+            </div>
 
-      <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
-        {/* 経歴セクション */}
-        <Journey
-          journeys={ITJourneys}
-          title="IT経歴 (IT Journey)"
-          borderClassName="border-primary"
-          categoryClassName="text-primary-foreground bg-primary"
-        />
-        <Journey
-          journeys={TravelJourneys}
-          title="旅の経歴 (Travel Journey)"
-          borderClassName="border-accent"
-          categoryClassName="text-accent-foreground bg-accent"
-        />
+            <div className="text-center md:text-left">
+              <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2">
+                Traveler Profile
+              </div>
+              <h1 className="text-4xl md:text-5xl font-black font-montserrat mb-4">
+                Tomokichi
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+                新しい世界への探究心を、技術で形にする。
+                <br />
+                <span className="text-sm mt-2 block opacity-80">
+                  Turning curiosity into code, one journey at a time.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 prose prose-lg max-w-none dark:prose-invert prose-p:leading-relaxed prose-a:text-primary">
+            <p>
+              Next.jsとTypeScriptを軸に、再利用性の高いコンポーネント設計と、誰もがストレスなく使えるUI/UXの実現に情熱を注いでいます。汎用的なコンポーネントが様々な場所で機能する瞬間に、開発者として大きな喜びを感じます。
+            </p>
+            <p>
+              この技術への探求心は、自身の「旅」の経験と深く結びついています。世界を旅する中で感じた感動やリアルな体験を共有し、他の人の役に立ちたいという思いからブログ『ともきちの旅行日記』を運営。そして現在は、旅先で感じる「あったらいいな」という不便を、自らの手で解決するツールの開発に力を入れています。
+            </p>
+            <p>
+              将来的には、AI技術を駆使してWebからモバイルまで迅速に開発できるエンジニアを目指しています。旅のコミュニティや、旅行体験そのものをより豊かにするサービスを通じて、技術で新しい世界への扉を開く手助けをしたいと考えています。
+            </p>
+          </div>
+        </section>
+
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+          {/* 経歴セクション */}
+          <JourneySection
+            journeys={ITJourneys}
+            title="IT Journey"
+            icon="plane"
+          />
+          <JourneySection
+            journeys={TravelJourneys}
+            title="Travel Journey"
+            icon="map"
+          />
+        </div>
+
+        {/* スキルへの導線 */}
+        <section className="mt-20 text-center">
+          <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border-2 border-dashed border-slate-200 dark:border-slate-700">
+            <h2 className="text-2xl font-bold font-montserrat mb-2">
+              Ready to Pack?
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Check out the tools and technologies I carry on my adventures.
+            </p>
+            <Link
+              href="/skills"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 font-bold text-white transition-all hover:bg-primary/90 hover:scale-105 shadow-lg shadow-primary/25"
+            >
+              View Packing List <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
       </div>
-
-      {/* スキルへの導線 */}
-      <section className="mt-16 text-center">
-        <h2 className="text-2xl font-bold text-foreground">スキル</h2>
-        <p className="mt-4 text-muted-foreground">
-          使用する技術スタックの詳細はこちらをご覧ください。
-        </p>
-        <Link
-          href="/skills"
-          className="mt-6 inline-block rounded-md bg-primary px-6 py-3 font-bold text-primary-foreground transition-transform hover:scale-105"
-        >
-          スキル一覧へ
-        </Link>
-      </section>
     </div>
   );
 }

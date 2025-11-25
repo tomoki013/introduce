@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FaGithub, FaPenSquare } from "react-icons/fa";
 import { SiQiita, SiZenn } from "react-icons/si";
-import { MotionDiv } from "@/components/common/Motion";
+import { motion } from "framer-motion";
 
 const socialLinks = [
   {
@@ -36,7 +36,7 @@ export default function SocialLinksClient() {
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
       {socialLinks.map((social, index) => (
-        <MotionDiv
+        <motion.div
           key={index}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export default function SocialLinksClient() {
           >
             フォローする
           </Link>
-        </MotionDiv>
+        </motion.div>
       ))}
     </div>
   );
