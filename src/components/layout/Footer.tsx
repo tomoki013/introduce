@@ -13,23 +13,57 @@ export default function TravelFooter() {
       </div>
 
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <div className="grid gap-8 md:grid-cols-3 items-center">
-          {/* Brand */}
-          <div className="text-center md:text-left">
+        <div className="grid grid-cols-1 gap-12 text-center md:grid-cols-4 md:text-left">
+          {/* Brand & Copyright */}
+          <div className="md:col-span-1">
             <Link
               href={`/`}
               className="text-xl font-bold font-montserrat tracking-wider"
             >
               TOMOKICHI<span className="text-primary">.AIR</span>
             </Link>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-4 text-sm text-muted-foreground">
               Engineering your next digital destination.
             </p>
+            <div className="mt-6 text-xs text-muted-foreground font-mono">
+              <p>© {new Date().getFullYear()} Tomokichi.</p>
+              <p>All rights reserved.</p>
+            </div>
+          </div>
+
+          {/* Spacer for alignment */}
+          <div className="hidden md:block"></div>
+
+          {/* Site Links */}
+          <div className="md:col-span-1">
+            <h3 className="font-semibold tracking-wider text-foreground">
+              Links
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {[
+                { href: "/projects", label: "Projects" },
+                { href: "/blog", label: "Blog" },
+                { href: "/news", label: "News" },
+                { href: "/social", label: "Social" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Social Links */}
-          <div className="flex flex-col items-center gap-4">
-            <section className="flex justify-center gap-6">
+          <div className="md:col-span-1">
+            <h3 className="font-semibold tracking-wider text-foreground">
+              Social
+            </h3>
+            <div className="mt-4 flex justify-center gap-4 md:justify-start">
               <SocialLink
                 href="https://github.com/tomoki013"
                 icon={FaGithub}
@@ -50,69 +84,37 @@ export default function TravelFooter() {
                 icon={SiZenn}
                 label="Zenn"
               />
-            </section>
-            <section className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-              <Link
-                href={`/projects`}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Projects
-              </Link>
-              <Link
-                href={`/blog`}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Blog
-              </Link>
-              <Link
-                href={`/news`}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                News
-              </Link>
-              <Link
-                href={`/social`}
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Social
-              </Link>
-            </section>
-          </div>
-
-          {/* Copyright & Legal */}
-          <div className="text-center md:text-right text-sm text-muted-foreground font-mono flex flex-col items-center md:items-end gap-2">
-            <p>© {new Date().getFullYear()} Tomokichi.</p>
-            <p>All rights reserved.</p>
-
-            <div>
-              <ul className="flex gap-4 text-xs">
-                <li>
-                  <Link
-                    href={`/privacy`}
-                    className="hover:text-primary transition-colors"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={`/terms`}
-                    className="hover:text-primary transition-colors"
-                  >
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={`/sitemap`}
-                    className="hover:text-primary transition-colors"
-                  >
-                    Sitemap
-                  </Link>
-                </li>
-              </ul>
             </div>
           </div>
+        </div>
+        {/* Legal Links */}
+        <div className="mt-12 border-t border-dashed border-slate-300 dark:border-slate-700 pt-8 text-center">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+            <li>
+              <Link
+                href={`/privacy`}
+                className="hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={`/terms`}
+                className="hover:text-primary transition-colors"
+              >
+                Terms of Service
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={`/sitemap`}
+                className="hover:text-primary transition-colors"
+              >
+                Sitemap
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>
