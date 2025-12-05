@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import yaml from "js-yaml";
 
 export const newsTags = [
   "プレスリリース",
@@ -43,7 +44,7 @@ export async function getAllNews(): Promise<NewsItem[]> {
     const slug = fileName.replace(/\.(md|mdx)$/, "");
     const fullPath = path.join(newsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents);
+    const matterResult = matter(fileContents, { engines: { yaml: { parse: yaml.load as any } } });
 
     const processedContent = await remark()
       .use(html)
@@ -87,7 +88,7 @@ export async function getNewsById(slug: string): Promise<NewsItem | null> {
   }
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const matterResult = matter(fileContents);
+  const matterResult = matter(fileContents, { engines: { yaml: { parse: yaml.load as any } } });
 
   const processedContent = await remark()
     .use(html)
