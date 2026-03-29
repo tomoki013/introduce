@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const yaml = require('js-yaml');
+const postsDirectory = path.join(process.cwd(), 'posts');
+const rootDirectoryMarker = '.';
 
 /**
  * 指定されたディレクトリから再帰的にすべてのMarkdownファイルのパスを取得します。
@@ -23,6 +25,22 @@ const getMarkdownFiles = (dir) => {
   return files;
 };
 
+const resolveContentDirectory = (dir) =>
+  dir === rootDirectoryMarker ? postsDirectory : path.join(postsDirectory, dir);
+
+const getConfiguredDirectories = (configPath) => {
+  if (!fs.existsSync(configPath)) {
+    return [];
+  }
+
+  const configData = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+  if (!Array.isArray(configData.directories)) {
+    return [];
+  }
+
+  return [...new Set(configData.directories.filter((dir) => typeof dir === 'string' && dir.trim().length > 0))];
+};
+
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: 'https://www.tomokichidiary.com/',
@@ -42,9 +60,8 @@ module.exports = {
     const newsConfigPath = 'posts/news.config.json';
     let newsPaths = [];
     if (fs.existsSync(newsConfigPath)) {
-      const newsConfig = JSON.parse(fs.readFileSync(newsConfigPath, 'utf8'));
-      for (const dir of newsConfig.directories) {
-        const fullDir = path.join('posts', dir);
+      for (const dir of getConfiguredDirectories(newsConfigPath)) {
+        const fullDir = resolveContentDirectory(dir);
         if (fs.existsSync(fullDir)) {
           const newsFiles = fs.readdirSync(fullDir);
           const paths = newsFiles
@@ -64,9 +81,8 @@ module.exports = {
     let blogPaths = [];
 
     for (const configPath of blogConfigs) {
-      const configData = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-      for (const dir of configData.directories) {
-        const fullDir = path.join('posts', dir);
+      for (const dir of getConfiguredDirectories(configPath)) {
+        const fullDir = resolveContentDirectory(dir);
         if (fs.existsSync(fullDir)) {
           const files = getMarkdownFiles(fullDir);
           for (const file of files) {
@@ -74,9 +90,8 @@ module.exports = {
             const { data } = matter(content, {
               engines: { yaml: { parse: yaml.load } },
             });
-            if (data.slug) {
-              blogPaths.push({ loc: `/blog/${data.slug}` });
-            }
+            const slug = data.slug || path.basename(file, path.extname(file));
+            blogPaths.push({ loc: `/blog/${slug}` });
           }
         }
       }

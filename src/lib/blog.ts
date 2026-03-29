@@ -6,6 +6,8 @@ import html from "remark-html";
 import yaml from "js-yaml";
 
 const postsDirectory = path.join(process.cwd(), "posts");
+const blogConfigFileName = "introduce.config.json";
+const rootDirectoryMarker = ".";
 
 export type PostData = {
   slug: string;
@@ -16,48 +18,56 @@ export type PostData = {
   category?: string;
 };
 
-/**
- * introduce.config.jsonファイルを読み取り、スキャン対象のサブディレクトリ名のリストを返す
- */
-function getPostSubdirectories(): string[] {
-  const allItems = fs.readdirSync(postsDirectory);
+type BlogConfig = {
+  directories?: string[];
+};
 
-  // 🔽 修正点: "introduce.config.json" という名前のファイルのみを対象にする
-  const configFiles = allItems.filter(
-    (name) => name === "introduce.config.json"
-  );
+function getConfiguredPostDirectories(): string[] {
+  const configPath = path.join(postsDirectory, blogConfigFileName);
 
-  const directories = new Set<string>();
-
-  for (const configFile of configFiles) {
-    const configPath = path.join(postsDirectory, configFile);
-
-    // .config.jsonがファイルであることを確認
-    if (fs.statSync(configPath).isDirectory()) continue;
-
-    const fileContents = fs.readFileSync(configPath, "utf8");
-    try {
-      const config = JSON.parse(fileContents);
-      if (Array.isArray(config.directories)) {
-        config.directories.forEach((dir: string) => directories.add(dir));
-      }
-    } catch (e) {
-      console.error(`Error parsing ${configFile}:`, e);
-    }
+  if (!fs.existsSync(configPath) || fs.statSync(configPath).isDirectory()) {
+    return [rootDirectoryMarker];
   }
-  // 例: ["introduce-posts", "common"]
-  return Array.from(directories);
+
+  try {
+    const fileContents = fs.readFileSync(configPath, "utf8");
+    const config = JSON.parse(fileContents) as BlogConfig;
+    const directories = new Set<string>();
+
+    if (Array.isArray(config.directories)) {
+      config.directories.forEach((dir) => {
+        if (typeof dir === "string" && dir.trim().length > 0) {
+          directories.add(dir);
+        }
+      });
+    }
+
+    if (directories.size === 0) {
+      directories.add(rootDirectoryMarker);
+    }
+
+    return Array.from(directories);
+  } catch (error) {
+    console.error(`Error parsing ${blogConfigFileName}:`, error);
+    return [rootDirectoryMarker];
+  }
+}
+
+function resolvePostDirectoryPath(dir: string): string {
+  return dir === rootDirectoryMarker
+    ? postsDirectory
+    : path.join(postsDirectory, dir);
 }
 
 /**
  * すべての記事のメタデータを取得する
  */
 export function getAllPosts(): PostData[] {
-  const subDirs = getPostSubdirectories();
+  const subDirs = getConfiguredPostDirectories();
   const allPostsData: PostData[] = [];
 
   for (const dir of subDirs) {
-    const dirPath = path.join(postsDirectory, dir);
+    const dirPath = resolvePostDirectoryPath(dir);
 
     // ディレクトリが存在するか確認
     if (!fs.existsSync(dirPath) || !fs.statSync(dirPath).isDirectory()) {
@@ -108,11 +118,11 @@ export function getAllPosts(): PostData[] {
  * すべての記事のスラッグ（ファイル名）をgetStaticPaths用に取得する
  */
 export async function getAllPostSlugs() {
-  const subDirs = getPostSubdirectories();
+  const subDirs = getConfiguredPostDirectories();
   const allSlugs: { params: { slug: string } }[] = [];
 
   for (const dir of subDirs) {
-    const dirPath = path.join(postsDirectory, dir);
+    const dirPath = resolvePostDirectoryPath(dir);
 
     // ディレクトリが存在するか確認
     if (!fs.existsSync(dirPath) || !fs.statSync(dirPath).isDirectory()) {
@@ -144,22 +154,20 @@ export async function getAllPostSlugs() {
  * (設定された全サブディレクトリから該当ファイルを探す)
  */
 export async function getPostBySlug(slug: string) {
-  const subDirs = getPostSubdirectories();
+  const subDirs = getConfiguredPostDirectories();
   let fullPath: string | null = null;
-  let fileExtension: ".md" | ".mdx" | null = null;
 
   // すべてのサブディレクトリを検索
   for (const dir of subDirs) {
-    const mdPath = path.join(postsDirectory, dir, `${slug}.md`);
-    const mdxPath = path.join(postsDirectory, dir, `${slug}.mdx`);
+    const dirPath = resolvePostDirectoryPath(dir);
+    const mdPath = path.join(dirPath, `${slug}.md`);
+    const mdxPath = path.join(dirPath, `${slug}.mdx`);
 
     if (fs.existsSync(mdxPath)) {
       fullPath = mdxPath;
-      fileExtension = ".mdx";
       break; // ファイルが見つかったらループ終了
     } else if (fs.existsSync(mdPath)) {
       fullPath = mdPath;
-      fileExtension = ".md";
       break; // ファイルが見つかったらループ終了
     }
   }
