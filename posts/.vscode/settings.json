@@ -1,0 +1,31 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // === ここからMDX用の設定を追加 ===
+
+  // 1. ESLintの検証対象に "mdx" を追加
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "mdx" // 👈 これを追加
+  ],
+
+  // 2. .mdx ファイルを "mdx" 言語として関連付け
+  "files.associations": {
+    "*.mdx": "mdx"
+  },
+
+  // 3. [mdx]言語に対してもデフォルトフォーマッターを指定
+  // (グローバル設定が適用されるはずですが、明示するとより確実です)
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

@@ -27,7 +27,7 @@ export default function TravelContact() {
               </h2>
               <p className="text-slate-600 dark:text-slate-300 mb-8">
                 Have a project in mind or just want to say hi? Drop me a message
-                and let's start a new journey together.
+                and let&apos;s start a new journey together.
               </p>
 
               <form className="space-y-4">

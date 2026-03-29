@@ -29,14 +29,17 @@ export default async function PostPage(props: {
   params: Promise<{ slug: string }>;
 }) {
   const params = await props.params;
+  let post;
+
   try {
-    const post = await getPostBySlug(params.slug);
-    return (
-      <div className="min-h-screen py-24 px-4 md:px-8">
-        <PostDetail post={post} />
-      </div>
-    );
+    post = await getPostBySlug(params.slug);
   } catch {
     notFound();
   }
+
+  return (
+    <div className="min-h-screen py-24 px-4 md:px-8">
+      <PostDetail post={post} />
+    </div>
+  );
 }

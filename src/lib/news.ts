@@ -44,7 +44,9 @@ export async function getAllNews(): Promise<NewsItem[]> {
     const slug = fileName.replace(/\.(md|mdx)$/, "");
     const fullPath = path.join(newsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, "utf8");
-    const matterResult = matter(fileContents, { engines: { yaml: { parse: yaml.load as any } } });
+    const matterResult = matter(fileContents, {
+      engines: { yaml: { parse: yaml.load as any } },
+    });
 
     const processedContent = await remark()
       .use(html)
@@ -88,7 +90,9 @@ export async function getNewsById(slug: string): Promise<NewsItem | null> {
   }
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const matterResult = matter(fileContents, { engines: { yaml: { parse: yaml.load as any } } });
+  const matterResult = matter(fileContents, {
+    engines: { yaml: { parse: yaml.load as any } },
+  });
 
   const processedContent = await remark()
     .use(html)

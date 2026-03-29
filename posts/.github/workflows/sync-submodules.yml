@@ -1,0 +1,74 @@
+# .github/workflows/sync-submodules.yml
+name: Sync Submodules in Main Repos
+
+on:
+  push:
+    branches:
+      - main # my-postsリポジトリのmainブランチにpushされたら実行
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout management-of-articles repo
+        uses: actions/checkout@v4
+        with:
+          repository: tomoki013/management-of-articles # あなたの my-posts リポジトリ名に変更
+          path: management-of-articles # my-postsの内容を一時的にチェックアウト
+
+      - name: Get latest posts commit hash
+        id: posts_commit
+        run: echo "sha=$(git -C management-of-articles rev-parse HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Setup Git config
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+
+      # --- introduce リポジトリの更新 ---
+      - name: Checkout introduce repo
+        uses: actions/checkout@v4
+        with:
+          repository: tomoki013/introduce # あなたの introduce リポジトリ名に変更
+          path: introduce # チェックアウト先ディレクトリ
+          token: ${{ secrets.MAIN_REPO_PAT }} # PATを使用
+          submodules: "recursive" # サブモジュールもチェックアウト
+
+      - name: Update posts submodule in introduce
+        run: |
+          cd introduce
+          git submodule update --remote --merge posts
+          # 変更がなければ何もしない、あればコミットしてプッシュ
+          if ! git diff --quiet posts; then
+            git add posts
+            git commit -m "Update posts submodule to commit ${{ steps.posts_commit.outputs.sha }} [skip ci]"
+            git push origin main # プッシュ先のブランチを指定
+          else
+            echo "No changes in posts submodule for introduce."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.MAIN_REPO_PAT }} # プッシュ時の認証に使用
+
+      # --- new-it-blog リポジトリの更新 ---
+      - name: Checkout new-it-blog repo
+        uses: actions/checkout@v4
+        with:
+          repository: tomoki013/new-it-blog # あなたの new-it-blog リポジトリ名に変更
+          path: new-it-blog # チェックアウト先ディレクトリ
+          token: ${{ secrets.MAIN_REPO_PAT }} # PATを使用
+          submodules: "recursive"
+
+      - name: Update posts submodule in new-it-blog
+        run: |
+          cd new-it-blog
+          git submodule update --remote --merge posts
+          # 変更がなければ何もしない、あればコミットしてプッシュ
+          if ! git diff --quiet posts; then
+            git add posts
+            git commit -m "Update posts submodule to commit ${{ steps.posts_commit.outputs.sha }} [skip ci]"
+            git push origin main # プッシュ先のブランチを指定
+          else
+            echo "No changes in posts submodule for new-it-blog."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.MAIN_REPO_PAT }} # プッシュ時の認証に使用
