@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,11 +20,6 @@ export default function TravelHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  // Close menu on route change
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
 
   // Close menu when clicking outside
   useEffect(() => {

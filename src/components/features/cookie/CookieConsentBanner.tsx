@@ -1,33 +1,45 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import CookieConsent from "react-cookie-consent";
 import Link from "next/link";
 import { CgClose } from "react-icons/cg";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CookieConsentBanner = () => {
-  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+  const shouldShowBanner = useSyncExternalStore(
+    () => () => undefined,
+    () => {
+      // Check if consent has been given or if the banner was dismissed
+      if (typeof window === "undefined") {
+        return false;
+      }
 
-  useEffect(() => {
-    // Check if consent has been given or if the banner was dismissed
-    const consentGiven = document.cookie.includes(
-      "tomokichi-cookie-consent=true"
-    );
-    const consentDismissed = sessionStorage.getItem("cookie-consent-dismissed");
+      const consentGiven = document.cookie.includes(
+        "tomokichi-cookie-consent=true"
+      );
+      const consentDismissed = sessionStorage.getItem(
+        "cookie-consent-dismissed"
+      );
 
-    if (!consentGiven && !consentDismissed) {
-      setVisible(true);
-    }
-  }, []);
+      return !consentGiven && !consentDismissed;
+    },
+    () => false
+  );
+
+  const visible = shouldShowBanner && !dismissed;
 
   const handleAccept = () => {
-    setVisible(false);
+    setDismissed(true);
   };
 
   const handleDecline = () => {
-    sessionStorage.setItem("cookie-consent-dismissed", "true");
-    setVisible(false);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("cookie-consent-dismissed", "true");
+    }
+
+    setDismissed(true);
   };
 
   return (

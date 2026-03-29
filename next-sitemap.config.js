@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
+const yaml = require('js-yaml');
 
 /**
  * 指定されたディレクトリから再帰的にすべてのMarkdownファイルのパスを取得します。
@@ -70,7 +71,9 @@ module.exports = {
           const files = getMarkdownFiles(fullDir);
           for (const file of files) {
             const content = fs.readFileSync(file, 'utf8');
-            const { data } = matter(content);
+            const { data } = matter(content, {
+              engines: { yaml: { parse: yaml.load } },
+            });
             if (data.slug) {
               blogPaths.push({ loc: `/blog/${data.slug}` });
             }

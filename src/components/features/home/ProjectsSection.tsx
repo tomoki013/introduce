@@ -55,7 +55,7 @@ export default function TravelProjects({ projects }: TravelProjectsProps) {
             </span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Explore the digital landscapes I've crafted. Each project is a new
+            Explore the digital landscapes I&apos;ve crafted. Each project is a new
             journey into technology and design.
           </p>
         </div>

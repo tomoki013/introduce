@@ -76,7 +76,9 @@ export function getAllPosts(): PostData[] {
         const slug = fileName.replace(/\.(md|mdx)$/, "");
         const fullPath = path.join(dirPath, fileName);
         const fileContents = fs.readFileSync(fullPath, "utf8");
-        const matterResult = matter(fileContents, { engines: { yaml: { parse: yaml.load as any } } });
+        const matterResult = matter(fileContents, {
+          engines: { yaml: { parse: yaml.load as any } },
+        });
 
         const excerpt = matterResult.content.slice(0, 120);
         allPostsData.push({
@@ -168,7 +170,9 @@ export async function getPostBySlug(slug: string) {
   }
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
-  const matterResult = matter(fileContents, { engines: { yaml: { parse: yaml.load as any } } });
+  const matterResult = matter(fileContents, {
+    engines: { yaml: { parse: yaml.load as any } },
+  });
 
   // Markdown/MDXをHTMLに変換
   // (もしMDXを正しくパースする必要がある場合、remark-htmlの代わりに
